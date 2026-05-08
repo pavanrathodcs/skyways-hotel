@@ -3,11 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --background: #0A0A0A;
-  --foreground: #F5F0E8;
-  --gold: #C9A84C;
-  --gold-light: #E2C97E;
-  --gold-dark: #9A7A2E;
+  --accent:     #7C6FCD;
+  --background: #080808;
+  --foreground: #F0F0F0;
 }
 
 @layer base {
@@ -27,44 +25,16 @@
   }
 
   ::selection {
-    background-color: var(--gold);
-    color: #0A0A0A;
+    background-color: var(--accent);
+    color: #fff;
   }
 
-  ::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: #0A0A0A;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: var(--gold-dark);
-    border-radius: 3px;
-  }
+  ::-webkit-scrollbar        { width: 4px; }
+  ::-webkit-scrollbar-track  { background: #080808; }
+  ::-webkit-scrollbar-thumb  { background: #242424; border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: #363636; }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-
-  .gold-gradient {
-    background: linear-gradient(135deg, #C9A84C 0%, #E2C97E 50%, #C9A84C 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .gold-border {
-    border-color: var(--gold);
-  }
-
-  .glass {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(201, 168, 76, 0.12);
-  }
+  .text-balance { text-wrap: balance; }
 }
