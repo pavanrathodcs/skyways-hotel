@@ -1,118 +1,141 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import LuxuryButton from "@/components/ui/LuxuryButton";
+import { STATS } from "@/lib/data";
+
+const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
+
+const stagger = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.15, delayChildren: 0.05 } },
+};
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
-  visible: (delay: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.9,
-      delay,
-      ease: [0.25, 0.46, 0.45, 0.94] as const,
-    },
-  }),
+  hidden:   { opacity: 0, y: 16 },
+  visible:  { opacity: 1, y: 0, transition: { duration: 0.8, ease: EASE } },
 };
 
 export default function HeroSection() {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const bgY      = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  const bgOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0.3]);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-[#050508]">
-        {/* Warm city horizon glow */}
-        <div className="absolute bottom-0 inset-x-0 h-1/2 bg-gradient-to-t from-[#180a00]/60 via-[#0d0500]/20 to-transparent" />
+    <section
+      ref={ref}
+      className="relative h-screen min-h-[640px] flex flex-col overflow-hidden"
+      aria-label="Hero — Skyways Hotel"
+    >
+      {/* ── Background (2 layers) ── */}
+      <motion.div
+        className="absolute inset-0"
+        style={{ y: bgY, opacity: bgOpacity }}
+        aria-hidden="true"
+      >
+        {/* Base */}
+        <div className="absolute inset-0 bg-[#060608]" />
 
-        {/* Primary gold ambient glow */}
-        <div className="absolute bottom-[-8%] left-1/2 -translate-x-1/2 w-[700px] h-[320px] rounded-full bg-[#C9A84C]/[0.07] blur-[130px]" />
+        {/* Single violet bloom */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="w-[560px] h-[360px] rounded-full bg-accent/[0.07] blur-[110px]" />
+        </div>
 
-        {/* Secondary warm accent */}
-        <div className="absolute bottom-[15%] right-[10%] w-[350px] h-[180px] rounded-full bg-[#8B4513]/[0.12] blur-[90px]" />
-
-        {/* Cool blue tinge for depth */}
-        <div className="absolute top-[25%] left-[12%] w-[400px] h-[200px] rounded-full bg-[#0a1628]/40 blur-[100px]" />
-
-        {/* Dot grid */}
+        {/* Diagonal line pattern */}
         <div
-          className="absolute inset-0 opacity-[0.035]"
+          className="absolute inset-0 opacity-[0.022]"
           style={{
-            backgroundImage: 'radial-gradient(circle, #C9A84C 1px, transparent 1px)',
-            backgroundSize: '44px 44px',
-            maskImage: 'radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 100%)',
-            WebkitMaskImage: 'radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 100%)',
+            backgroundImage:
+              "repeating-linear-gradient(-45deg, transparent 0px, transparent 19px, rgba(255,255,255,0.9) 19px, rgba(255,255,255,0.9) 20px)",
           }}
         />
 
-        {/* Top vignette */}
-        <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-[#050508] to-transparent" />
-        {/* Bottom vignette */}
-        <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-[#050508] to-transparent" />
-      </div>
+        {/* Bottom fade into page */}
+        <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-[#080808] to-transparent" />
+      </motion.div>
 
-      {/* Content */}
-      <div className="relative z-10 text-center max-w-5xl mx-auto px-6 md:px-10">
-        <motion.p
-          className="text-gold text-[11px] tracking-ultra uppercase mb-8 font-sans"
-          custom={0}
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-        >
-          Los Angeles International Airport · Forbes Five-Star
-        </motion.p>
-
-        <motion.h1
-          className="font-display text-[clamp(3.5rem,10vw,7.5rem)] text-cream leading-[1.04] mb-8 tracking-tight"
-          custom={0.2}
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-        >
-          Where the Sky<br />
-          <span className="gold-gradient italic">Meets Luxury</span>
-        </motion.h1>
-
-        <motion.p
-          className="text-ash-light text-lg md:text-xl font-sans leading-relaxed max-w-xl mx-auto mb-14"
-          custom={0.4}
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-        >
-          A sanctuary above the city of angels. Every detail considered,
-          every moment elevated, every guest made extraordinary.
-        </motion.p>
-
+      {/* ── Main content (fills remaining space above stats) ── */}
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 md:px-10 pt-20 pb-4">
         <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center"
-          custom={0.6}
+          className="max-w-4xl w-full"
+          variants={stagger}
           initial="hidden"
           animate="visible"
-          variants={fadeUp}
         >
-          <button className="bg-gold text-onyx text-[11px] tracking-widest uppercase px-12 py-4 font-sans font-semibold hover:bg-gold-light transition-colors duration-300">
-            Reserve Your Stay
-          </button>
-          <button className="border border-white/20 text-cream text-[11px] tracking-widest uppercase px-12 py-4 font-sans hover:border-gold hover:text-gold transition-all duration-300">
-            Explore Rooms
-          </button>
+          {/* Kicker */}
+          <motion.p
+            variants={fadeUp}
+            className="text-ash text-sm mb-6 font-sans"
+          >
+            LAX Airport &middot; Los Angeles
+          </motion.p>
+
+          {/* Headline */}
+          <motion.h1
+            variants={fadeUp}
+            className="font-display text-[clamp(2rem,8vw,7rem)] text-white leading-[1.05] md:leading-[1.0] mb-6 tracking-tight text-balance"
+          >
+            Where the Sky<br />
+            <em className="italic">Meets Luxury</em>
+          </motion.h1>
+
+          {/* Sub */}
+          <motion.p
+            variants={fadeUp}
+            className="text-ash-light text-base md:text-lg font-sans leading-relaxed max-w-lg mx-auto mb-10"
+          >
+            Modern comfort, minutes from LAX. Free WiFi, on-site dining,
+            and easy access to Santa Monica and Venice Beach.
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div
+            variants={fadeUp}
+            className="flex flex-col sm:flex-row gap-3 justify-center"
+          >
+            <LuxuryButton href="/booking" variant="primary" size="lg">
+              Reserve your stay
+            </LuxuryButton>
+            <LuxuryButton href="/rooms" variant="ghost" size="lg">
+              Explore rooms
+            </LuxuryButton>
+          </motion.div>
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* ── Stats row (embedded at bottom of hero) ── */}
       <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
-        custom={1.1}
-        initial="hidden"
-        animate="visible"
-        variants={fadeUp}
+        className="relative z-10 shrink-0 border-t border-white/[0.06]"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.9 }}
+        aria-label="Hotel highlights"
       >
-        <span className="text-ash text-[10px] tracking-ultra uppercase font-sans">Scroll</span>
-        <motion.div
-          className="w-px h-10 bg-gradient-to-b from-gold/60 to-transparent"
-          animate={{ scaleY: [1, 0.4, 1], opacity: [0.6, 1, 0.6] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-        />
+        <div className="max-w-7xl mx-auto px-6 md:px-10 py-6 md:py-7">
+          <div className="grid grid-cols-2 sm:grid-cols-4">
+            {STATS.map((stat, i) => (
+              <div
+                key={stat.label}
+                className="relative flex flex-col sm:items-center py-3 sm:py-0"
+              >
+                {i > 0 && (
+                  <div
+                    className="absolute left-0 top-1/2 -translate-y-1/2 h-6 w-px bg-white/10 hidden sm:block"
+                    aria-hidden="true"
+                  />
+                )}
+                <span className="font-display text-xl md:text-2xl text-white leading-none">
+                  {stat.value}
+                </span>
+                <span className="text-white/40 text-[11px] mt-1 font-sans">
+                  {stat.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
       </motion.div>
     </section>
   );
