@@ -3,9 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --accent:     #7C6FCD;
-  --background: #080808;
-  --foreground: #F0F0F0;
+  --accent:      #6C63FF;
+  --accent-warm: #FF6B6B;
+  --accent-teal: #4ECDC4;
+  --background:  #080808;
+  --foreground:  #F4F4F4;
 }
 
 @layer base {

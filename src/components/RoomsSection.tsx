@@ -17,21 +17,19 @@ function RoomCard({ room, index }: { room: Room; index: number }) {
       transition={{ duration: 0.7, delay: index * 0.12, ease: EASE }}
     >
       <article className="group">
-        {/* Image area — full-bleed, aspect 4/3, no border */}
-        <div className="aspect-[4/3] overflow-hidden mb-5">
-          <div
-            className={`w-full h-full bg-gradient-to-br ${room.gradient} relative transition-transform duration-700 ease-out group-hover:scale-[1.03]`}
-          >
-            {/* Atmospheric glow */}
-            <div className={`absolute inset-0 ${room.glowClass} blur-[60px] scale-75 opacity-50`} />
-
-            {/* Tag */}
-            <div className="absolute top-4 left-4 z-10">
-              <span className="text-white/60 text-[9px] tracking-widest uppercase font-sans border border-white/15 bg-black/20 backdrop-blur-sm px-2.5 py-1">
-                {room.tag}
-              </span>
-            </div>
+        {/* Real photo */}
+        <div className="aspect-[4/3] overflow-hidden mb-5 relative">
+          <img
+            src={room.image}
+            alt={`${room.name} at Skyways Hotel`}
+            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+          />
+          <div className="absolute top-4 left-4 z-10">
+            <span className="text-white text-[9px] tracking-widest uppercase font-sans border border-white/30 bg-black/50 backdrop-blur-sm px-2.5 py-1">
+              {room.tag}
+            </span>
           </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
         </div>
 
         {/* Content — name, description, price */}

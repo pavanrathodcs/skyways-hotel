@@ -69,7 +69,7 @@ export default function Navbar() {
             {/* Book now — desktop */}
             <Link
               href="/booking"
-              className="hidden md:inline-flex items-center bg-white text-[#080808] text-sm font-medium px-5 py-2 hover:bg-white/90 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+              className="hidden md:inline-flex items-center bg-[#6C63FF] text-white text-sm font-medium px-5 py-2 hover:bg-[#5a52e0] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6C63FF]/50"
             >
               Book now
             </Link>
@@ -119,7 +119,7 @@ export default function Navbar() {
               <Link
                 href="/booking"
                 onClick={() => setMenuOpen(false)}
-                className="bg-white text-[#080808] text-sm font-medium px-10 py-3 hover:bg-white/90 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+                className="bg-[#6C63FF] text-white text-sm font-medium px-10 py-3 hover:bg-[#5a52e0] transition-colors duration-200 focus-visible:outline-none"
               >
                 Book now
               </Link>

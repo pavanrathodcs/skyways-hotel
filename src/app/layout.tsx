@@ -3,6 +3,7 @@ import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -17,14 +18,14 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Skyways Hotel — LAX Airport, Los Angeles",
+  title: "Skyways Hotel — Affordable LAX Airport Hotel from $89",
   description:
-    "A Forbes Five-Star luxury hotel at Los Angeles International Airport. Experience unmatched elegance, impeccable service, and breathtaking views of the LA skyline.",
-  keywords: "luxury hotel, LAX airport hotel, Los Angeles hotel, 5-star hotel, Forbes rated",
+    "The most affordable hotel near LAX Airport. From $89/night. Free WiFi, on-site dining, 0.8 miles from all terminals.",
+  keywords: "affordable LAX hotel, cheap hotel near LAX, airport hotel Los Angeles, hotel from $89",
   openGraph: {
-    title: "Skyways Hotel — LAX Airport, Los Angeles",
+    title: "Skyways Hotel — Affordable LAX Airport Hotel from $89",
     description:
-      "A Forbes Five-Star luxury hotel at Los Angeles International Airport.",
+      "The most affordable hotel near LAX Airport. From $89/night. Free WiFi, on-site dining, 0.8 miles from all terminals.",
     type: "website",
   },
 };
@@ -35,6 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <body className="font-sans antialiased bg-onyx text-cream">
+        <SmoothScroll />
         <Navbar />
         {children}
         <Footer />

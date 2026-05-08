@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 };
 
 const inputCls =
-  "w-full bg-transparent border border-white/10 text-cream text-sm font-sans px-4 py-3.5 focus:outline-none focus:border-accent/50 placeholder:text-ash-dark transition-colors duration-200 [color-scheme:dark]";
+  "w-full bg-transparent border border-white/10 text-cream text-sm font-sans px-4 py-3.5 focus:outline-none focus:border-[#6C63FF]/50 placeholder:text-ash-dark transition-colors duration-200 [color-scheme:dark]";
 
 export default function BookingPage() {
   return (
@@ -80,7 +80,7 @@ export default function BookingPage() {
               <option value="">Select a room type</option>
               <option value="queen-room">Queen Room — $89 / night</option>
               <option value="queen-double">Queen Double — $100 / night</option>
-              <option value="executive-king">Executive King — from $120 / night</option>
+              <option value="accessible-room">Accessible Room — $89 / night</option>
             </select>
           </div>
 

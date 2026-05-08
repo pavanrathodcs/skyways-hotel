@@ -37,7 +37,7 @@ export default function RoomsPage() {
             >
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="text-ash text-[9px] tracking-widest uppercase font-sans border border-white/15 px-2.5 py-1">
+                  <span className="text-white/60 text-[9px] tracking-widest uppercase font-sans border border-white/20 bg-white/5 px-2.5 py-1">
                     {room.tag}
                   </span>
                   <span className="text-ash-dark text-[10px] font-sans">{room.size}</span>
@@ -63,7 +63,7 @@ export default function RoomsPage() {
                 </div>
                 <Link
                   href="/booking"
-                  className="bg-white text-[#080808] text-sm font-medium px-8 py-3 hover:bg-white/90 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+                  className="bg-[#6C63FF] text-white text-sm font-medium px-8 py-3 hover:bg-[#5a52e0] transition-colors duration-200 focus-visible:outline-none"
                 >
                   Reserve this room
                 </Link>

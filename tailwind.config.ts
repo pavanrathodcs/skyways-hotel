@@ -9,24 +9,25 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Primary accent — muted violet
-        accent: "#7C6FCD",
-        // Backgrounds
+        accent: {
+          DEFAULT: '#6C63FF',
+          warm:    '#FF6B6B',
+          teal:    '#4ECDC4',
+        },
         onyx: {
-          DEFAULT: "#080808",
-          50:  "#0D0D0D",
-          100: "#111111",
-          200: "#181818",
-          300: "#242424",
-          400: "#363636",
+          DEFAULT: '#080808',
+          50:      '#0E0E0E',
+          100:     '#141414',
+          200:     '#1C1C1C',
+          300:     '#282828',
+          400:     '#383838',
         },
-        // Text
         ash: {
-          DEFAULT: "#6B6B6B",
-          light:   "#9A9A9A",
-          dark:    "#3A3A3A",
+          DEFAULT: '#888888',
+          light:   '#AAAAAA',
+          dark:    '#555555',
         },
-        cream: "#F0F0F0",
+        cream: '#F4F4F4',
       },
       fontFamily: {
         display: ["var(--font-playfair)", "Georgia", "serif"],

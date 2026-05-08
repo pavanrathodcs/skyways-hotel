@@ -40,7 +40,7 @@ export default function HeroSection() {
 
         {/* Single violet bloom */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="w-[560px] h-[360px] rounded-full bg-accent/[0.07] blur-[110px]" />
+          <div className="w-[560px] h-[360px] rounded-full bg-[#6C63FF]/[0.09] blur-[110px]" />
         </div>
 
         {/* Diagonal line pattern */}
@@ -78,7 +78,17 @@ export default function HeroSection() {
             className="font-display text-[clamp(2rem,8vw,7rem)] text-white leading-[1.05] md:leading-[1.0] mb-6 tracking-tight text-balance"
           >
             Where the Sky<br />
-            <em className="italic">Meets Luxury</em>
+            <em
+              className="not-italic"
+              style={{
+                background: 'linear-gradient(135deg, #6C63FF 0%, #4ECDC4 50%, #FF6B6B 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              Meets Luxury
+            </em>
           </motion.h1>
 
           {/* Sub */}

@@ -18,7 +18,7 @@ function AmenityCard({ amenity, index }: { amenity: Amenity; index: number }) {
       transition={{ duration: 0.6, delay: index * 0.07, ease: EASE }}
     >
       <div className="group p-6 md:p-8 hover:bg-white/[0.03] transition-colors duration-300 cursor-default">
-        <div className="text-white/30 group-hover:text-white/70 transition-colors duration-300 mb-5" aria-hidden="true">
+        <div className="text-[#4ECDC4]/70 group-hover:text-[#4ECDC4] transition-colors duration-300 mb-5" aria-hidden="true">
           <Icon size={20} strokeWidth={1.25} />
         </div>
 
