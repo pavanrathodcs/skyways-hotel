@@ -94,7 +94,7 @@ export default function LocationSection() {
                 height="100%"
                 style={{
                   border: 0,
-                  filter: "invert(90%) hue-rotate(180deg) saturate(0.3) brightness(0.8)",
+                  filter: "invert(92%) hue-rotate(180deg) saturate(0.15) brightness(0.75) contrast(1.1)",
                   position: "absolute",
                   inset: 0,
                 }}
@@ -102,13 +102,8 @@ export default function LocationSection() {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
-              {/* Pulsing location dot overlay */}
-              <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
-                <div className="relative">
-                  <div className="w-4 h-4 bg-teal-400 rounded-full shadow-lg shadow-teal-400/50" />
-                  <div className="absolute inset-0 w-4 h-4 bg-teal-400 rounded-full animate-ping opacity-60" />
-                </div>
-              </div>
+              {/* Inner shadow overlay */}
+              <div className="absolute inset-0 pointer-events-none rounded-2xl shadow-[inset_0_0_40px_rgba(0,0,0,0.4)]" />
               {/* Bottom gradient with hotel name */}
               <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#070B16]/90 to-transparent pointer-events-none flex items-end pb-3 px-4">
                 <p className="text-white font-semibold text-sm">Skyways Hotel · 5860 Arbor Vitae St</p>

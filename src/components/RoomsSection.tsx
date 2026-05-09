@@ -51,13 +51,22 @@ function RoomCard({ room, index }: { room: typeof ROOMS[0]; index: number }) {
           ))}
         </div>
 
-        <Link
-          href="/booking"
-          className="mt-auto block w-full text-center bg-indigo-600 text-white text-sm font-bold py-3 rounded-xl hover:bg-indigo-500 transition-colors duration-200 shadow-md shadow-indigo-900/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
-          aria-label={`Reserve ${room.name}`}
-        >
-          Reserve This Room
-        </Link>
+        <div className="mt-auto space-y-3">
+          <Link
+            href={`/rooms/${room.id}`}
+            className="block w-full text-center bg-indigo-600 text-white text-sm font-bold py-3 rounded-xl hover:bg-indigo-500 transition-colors duration-200 shadow-md shadow-indigo-900/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+            aria-label={`Reserve ${room.name}`}
+          >
+            Reserve This Room
+          </Link>
+          <Link
+            href={`/rooms/${room.id}`}
+            className="block w-full text-center text-sm text-slate-400 hover:text-white transition-colors duration-200"
+            aria-label={`View details for ${room.name}`}
+          >
+            View Details →
+          </Link>
+        </div>
       </div>
     </motion.article>
   );

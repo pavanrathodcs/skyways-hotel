@@ -93,12 +93,20 @@ export default function RoomsPage() {
                     </span>
                     <span className="text-slate-500 text-sm ml-2">/night</span>
                   </div>
-                  <Link
-                    href="/booking"
-                    className="inline-flex items-center justify-center bg-indigo-600 text-white text-sm font-bold px-8 py-3.5 rounded-xl hover:bg-indigo-500 transition-colors duration-200 shadow-lg shadow-indigo-900/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 whitespace-nowrap"
-                  >
-                    Reserve this room
-                  </Link>
+                  <div className="flex flex-col items-start md:items-end gap-2 w-full md:w-auto">
+                    <Link
+                      href={`/rooms/${room.id}`}
+                      className="inline-flex items-center justify-center bg-indigo-600 text-white text-sm font-bold px-8 py-3.5 rounded-xl hover:bg-indigo-500 transition-colors duration-200 shadow-lg shadow-indigo-900/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 whitespace-nowrap"
+                    >
+                      Reserve this room
+                    </Link>
+                    <Link
+                      href={`/rooms/${room.id}`}
+                      className="text-sm text-slate-400 hover:text-white transition-colors duration-200"
+                    >
+                      View Details →
+                    </Link>
+                  </div>
                 </div>
               </div>
             </article>
