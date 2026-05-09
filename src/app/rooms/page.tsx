@@ -51,7 +51,7 @@ export default function RoomsPage() {
               className="border border-white/[0.07] bg-[#0F172A] rounded-2xl overflow-hidden flex flex-col md:flex-row hover:border-white/[0.14] transition-colors duration-300 shadow-xl shadow-black/40"
             >
               {/* Room image */}
-              <div className="relative w-full md:w-72 lg:w-96 aspect-[4/3] md:aspect-auto shrink-0">
+              <div className="relative w-full md:w-72 lg:w-96 aspect-[4/3] md:aspect-auto md:self-stretch shrink-0">
                 <Image
                   src={room.image}
                   alt={`${room.name} at Skyways Hotel`}

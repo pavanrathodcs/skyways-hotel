@@ -122,7 +122,7 @@ export default function HeroSection() {
             </div>
 
             {/* Floating card: drive time */}
-            <div className="absolute -bottom-5 -left-5 bg-[#0F172A] border border-white/[0.10] rounded-2xl shadow-2xl px-5 py-4 flex items-center gap-3">
+            <div className="hidden md:flex absolute -bottom-5 -left-5 bg-[#0F172A] border border-white/[0.10] rounded-2xl shadow-2xl px-5 py-4 items-center gap-3">
               <div className="w-10 h-10 bg-indigo-500/15 rounded-xl flex items-center justify-center shrink-0">
                 <MapPin size={16} className="text-indigo-400" />
               </div>
@@ -133,7 +133,7 @@ export default function HeroSection() {
             </div>
 
             {/* Floating card: price */}
-            <div className="absolute -top-5 -right-5 bg-[#0F172A] border border-white/[0.10] rounded-2xl shadow-2xl px-5 py-4">
+            <div className="hidden md:block absolute -top-5 -right-5 bg-[#0F172A] border border-white/[0.10] rounded-2xl shadow-2xl px-5 py-4">
               <p className="text-[10px] text-slate-500 uppercase tracking-[0.14em]">Rooms from</p>
               <p className="text-2xl font-extrabold text-indigo-400 leading-none mt-0.5">
                 $89<span className="text-sm text-slate-500 font-normal ml-1">/night</span>
