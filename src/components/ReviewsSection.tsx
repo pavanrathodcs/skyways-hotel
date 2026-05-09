@@ -19,7 +19,7 @@ const REVIEWS = [
   {
     name: "Laura",
     score: "9/10",
-    text: "convenient to airport. I was worried about airplane noise at night. but on the bottom floor with the fan going, the noise level was fine. there is a nice little Greek restaurant right next door. not fancy, but a great value for the area",
+    text: "Convenient to airport. I was worried about airplane noise at night, but on the bottom floor with the fan going the noise level was fine. A nice little Greek restaurant right next door — great value for the area.",
   },
   {
     name: "Melanie",
@@ -29,20 +29,20 @@ const REVIEWS = [
   {
     name: "Frank",
     score: "10/10",
-    text: "Staff was very friendly and accommodating - room was nice, had everything I needed, nothing fancy but clean and comfortable.",
+    text: "Staff was very friendly and accommodating — room was nice, had everything I needed, nothing fancy but clean and comfortable.",
   },
   {
     name: "Roger",
     score: "9/10",
-    text: "Great service and Staff. The Greek restaurant is top class too!",
+    text: "Great service and staff. The Greek restaurant is top class too!",
   },
 ];
 
 const PLATFORMS = [
-  { name: "Expedia / Hotels.com", score: "7.2 / 10",  sub: "Good · 1,000+ reviews"   },
-  { name: "MakeMyTrip",           score: "3.5 / 5",   sub: "Very Good · 979 ratings"  },
-  { name: "Booking.com",          score: "2,140+",     sub: "Verified reviews"          },
-  { name: "Trivago",              score: "3,757",      sub: "Reviews · 43 photos"       },
+  { name: "Expedia / Hotels.com", score: "7.2 / 10", sub: "Good · 1,000+ reviews"  },
+  { name: "MakeMyTrip",           score: "3.5 / 5",  sub: "Very Good · 979 ratings" },
+  { name: "Booking.com",          score: "2,140+",   sub: "Verified reviews"         },
+  { name: "Trivago",              score: "3,757",    sub: "Reviews · 43 photos"      },
 ];
 
 export default function ReviewsSection() {
@@ -55,7 +55,9 @@ export default function ReviewsSection() {
           <p className="text-indigo-400 text-[10px] font-bold tracking-[0.22em] uppercase mb-2">
             Guest Reviews
           </p>
-          <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl text-white tracking-tight mb-3">What guests say</h2>
+          <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl text-white tracking-tight mb-3">
+            What guests say
+          </h2>
           <p className="text-slate-500 text-sm">
             Real reviews from verified guests. Average score 6.9/10 across 2,126 reviews.
           </p>
@@ -64,8 +66,12 @@ export default function ReviewsSection() {
         {/* Platform ratings */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
           {PLATFORMS.map(({ name, score, sub }) => (
-            <div key={name} className="bg-[#111827] rounded-xl p-5 border border-white/[0.08] text-center">
-              <p className="text-3xl font-extrabold text-white tracking-tight mb-1">{score}</p>
+            <div
+              key={name}
+              className="bg-[#111827] rounded-xl p-5 border border-white/[0.08] text-center relative overflow-hidden"
+            >
+              <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-indigo-500/30 to-transparent" />
+              <p className="text-3xl font-extrabold text-indigo-300 tracking-tight mb-1">{score}</p>
               <p className="text-xs text-slate-400 leading-snug">{name}</p>
               <p className="text-[11px] text-slate-600 mt-0.5">{sub}</p>
             </div>
@@ -83,16 +89,26 @@ export default function ReviewsSection() {
               transition={{ duration: 0.45, delay: i * 0.07, ease: EASE }}
               className="bg-[#111827] rounded-xl p-6 border border-white/[0.08] flex flex-col"
             >
-              <p className="text-slate-300 text-sm leading-relaxed flex-1">
-                &ldquo;{text}&rdquo;
+              <div className="flex items-start justify-between mb-3">
+                <span aria-hidden="true" className="text-[2.75rem] leading-none text-indigo-400/20 -mt-2 select-none font-serif">
+                  &ldquo;
+                </span>
+                <span className="text-[11px] font-bold text-indigo-300 bg-indigo-500/10 border border-indigo-500/20 px-2.5 py-1 rounded-full shrink-0">
+                  {score}
+                </span>
+              </div>
+
+              <p className="text-slate-300 text-sm leading-relaxed flex-1 -mt-2">
+                {text}
               </p>
+
               <div className="flex items-center gap-2.5 pt-4 mt-4 border-t border-white/[0.06]">
                 <div className="w-8 h-8 bg-indigo-500/15 rounded-full flex items-center justify-center text-indigo-300 font-semibold text-xs shrink-0">
                   {name[0].toUpperCase()}
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-white">{name}</p>
-                  <p className="text-xs text-slate-500">Verified guest &middot; {score}</p>
+                  <p className="text-xs text-slate-500">Verified guest</p>
                 </div>
               </div>
             </motion.div>
@@ -103,8 +119,8 @@ export default function ReviewsSection() {
         <div className="flex items-start gap-3 bg-yellow-900/20 border border-yellow-600/30 rounded-xl p-4 max-w-2xl mx-auto">
           <AlertCircle size={16} className="text-yellow-400 shrink-0 mt-0.5" />
           <p className="text-sm text-yellow-300">
-            <strong>Tip:</strong> Guests sensitive to aircraft noise may prefer requesting a
-            courtyard-facing room at check-in. Flights typically stop late evening.
+            <strong>Good to know:</strong> Guests sensitive to aircraft noise may prefer
+            requesting a courtyard-facing room at check-in. Flights typically stop late evening.
           </p>
         </div>
 

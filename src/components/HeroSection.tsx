@@ -149,7 +149,7 @@ export default function HeroSection() {
           <div className="grid grid-cols-2 sm:grid-cols-4 sm:divide-x divide-white/[0.06]">
             {STATS.map(({ value, label }) => (
               <div key={label} className="text-center py-3 px-4">
-                <p className="text-3xl font-extrabold text-white tracking-tight">{value}</p>
+                <p className="text-3xl font-extrabold text-indigo-300 tracking-tight">{value}</p>
                 <p className="text-[10px] text-slate-500 uppercase tracking-[0.16em] mt-1">{label}</p>
               </div>
             ))}

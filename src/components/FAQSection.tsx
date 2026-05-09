@@ -48,13 +48,15 @@ function FAQItem({
     <div className="border-b border-white/[0.07] last:border-b-0">
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between py-5 text-left gap-4 focus-visible:outline-none focus-visible:text-indigo-400"
+        className="w-full flex items-center justify-between py-5 text-left gap-4 focus-visible:outline-none group"
         aria-expanded={open}
       >
-        <span className="font-semibold text-slate-100 text-sm md:text-base leading-snug">{q}</span>
+        <span className={`font-semibold text-sm md:text-base leading-snug transition-colors duration-200 ${open ? "text-indigo-300" : "text-slate-100 group-hover:text-white"}`}>
+          {q}
+        </span>
         <ChevronDown
           size={18}
-          className={`text-slate-500 shrink-0 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+          className={`shrink-0 transition-all duration-200 ${open ? "rotate-180 text-indigo-400" : "text-slate-500 group-hover:text-slate-300"}`}
         />
       </button>
 
@@ -64,10 +66,12 @@ function FAQItem({
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2, ease: "easeInOut" }}
+            transition={{ duration: 0.22, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <p className="text-slate-400 text-sm leading-relaxed pb-5">{a}</p>
+            <p className="text-slate-400 text-sm leading-relaxed pb-5 pl-4 border-l-2 border-indigo-500/30">
+              {a}
+            </p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -76,7 +80,7 @@ function FAQItem({
 }
 
 export default function FAQSection() {
-  const [open, setOpen] = useState<number | null>(null);
+  const [open, setOpen] = useState<number | null>(0);
 
   return (
     <section id="faq" className="py-16 md:py-24 bg-[#070B16]">
@@ -88,15 +92,16 @@ export default function FAQSection() {
           </h2>
         </div>
 
-        <div className="border-t border-white/[0.07]">
+        <div className="border border-white/[0.07] rounded-2xl bg-[#0C1220] divide-y divide-white/[0.07] overflow-hidden">
           {FAQS.map((item, i) => (
-            <FAQItem
-              key={i}
-              q={item.q}
-              a={item.a}
-              open={open === i}
-              onToggle={() => setOpen(open === i ? null : i)}
-            />
+            <div key={i} className="px-6">
+              <FAQItem
+                q={item.q}
+                a={item.a}
+                open={open === i}
+                onToggle={() => setOpen(open === i ? null : i)}
+              />
+            </div>
           ))}
         </div>
       </div>
