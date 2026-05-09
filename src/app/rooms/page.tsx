@@ -22,10 +22,10 @@ const GOOD_TO_KNOW = [
 
 export default function RoomsPage() {
   return (
-    <main className="min-h-screen bg-[#080808]">
+    <main className="min-h-screen bg-[#070B16]">
 
       {/* ── Hero ── */}
-      <section className="relative pt-36 pb-20 bg-[#080808] overflow-hidden">
+      <section className="relative pt-36 pb-20 bg-[#070B16] overflow-hidden">
         <PremiumBackground variant="subtle" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10">
           <p className="text-indigo-400 text-[10px] font-bold tracking-[0.22em] uppercase mb-5">
@@ -48,7 +48,7 @@ export default function RoomsPage() {
           {ROOMS.map((room) => (
             <article
               key={room.id}
-              className="border border-white/[0.07] bg-[#141414] rounded-2xl overflow-hidden flex flex-col md:flex-row hover:border-white/[0.14] transition-colors duration-300 shadow-xl shadow-black/40"
+              className="border border-white/[0.07] bg-[#0D1221] rounded-2xl overflow-hidden flex flex-col md:flex-row hover:border-white/[0.14] transition-colors duration-300 shadow-xl shadow-black/40"
             >
               {/* Room image */}
               <div className="relative w-full md:w-72 lg:w-96 aspect-[4/3] md:aspect-auto md:self-stretch shrink-0">
@@ -121,7 +121,7 @@ export default function RoomsPage() {
             {GOOD_TO_KNOW.map(({ Icon, title, body }) => (
               <div
                 key={title}
-                className="bg-[#141414] border border-white/[0.07] rounded-2xl p-6"
+                className="bg-[#0D1221] border border-white/[0.07] rounded-2xl p-6"
               >
                 <div className="w-9 h-9 bg-teal-500/10 rounded-xl flex items-center justify-center mb-4">
                   <Icon size={16} className="text-teal-400" />
@@ -135,7 +135,7 @@ export default function RoomsPage() {
       </section>
 
       {/* ── Bottom CTA ── */}
-      <section className="py-20 bg-[#080808]">
+      <section className="py-20 bg-[#070B16]">
         <div className="max-w-2xl mx-auto px-6 md:px-10 text-center">
           <p className="text-indigo-400 text-[10px] font-bold tracking-[0.22em] uppercase mb-5">
             Ready to Book

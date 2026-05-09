@@ -10,7 +10,7 @@ const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 function RoomCard({ room, index }: { room: typeof ROOMS[0]; index: number }) {
   return (
     <motion.article
-      className="bg-[#141414] rounded-xl overflow-hidden border border-white/[0.08] hover:border-white/[0.16] transition-all duration-300 flex flex-col"
+      className="bg-[#0D1221] rounded-xl overflow-hidden border border-white/[0.08] hover:border-white/[0.16] transition-all duration-300 flex flex-col"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
@@ -65,7 +65,7 @@ function RoomCard({ room, index }: { room: typeof ROOMS[0]; index: number }) {
 
 export default function RoomsSection() {
   return (
-    <section id="rooms" className="py-16 md:py-24 bg-[#080808]">
+    <section id="rooms" className="py-16 md:py-24 bg-[#070B16]">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="flex items-end justify-between gap-6 mb-10">
           <div>

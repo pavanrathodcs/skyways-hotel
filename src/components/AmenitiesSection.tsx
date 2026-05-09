@@ -23,13 +23,13 @@ const AMENITIES = [
 
 export default function AmenitiesSection() {
   return (
-    <section id="amenities" className="py-16 md:py-24 bg-[#080808]">
+    <section id="amenities" className="py-16 md:py-24 bg-[#070B16]">
       <div className="max-w-5xl mx-auto px-6 md:px-10">
         <div className="text-center mb-12">
           <p className="text-teal-400 text-xs uppercase tracking-widest mb-3">What&apos;s Included</p>
           <h2 className="font-display text-4xl md:text-5xl text-white leading-tight">
             Included with{" "}
-            <em className="italic text-rose-400">every stay</em>
+            <em className="italic text-amber-400">every stay</em>
           </h2>
         </div>
 
@@ -41,10 +41,10 @@ export default function AmenitiesSection() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: i * 0.04, ease: EASE }}
-              className="flex items-center gap-2 px-4 py-2.5 rounded-full border border-white/[0.10] bg-white/[0.04] hover:border-teal-400/50 hover:text-teal-300 hover:bg-teal-500/[0.06] transition-all duration-200 cursor-default"
+              className="flex items-center gap-2 px-4 py-2.5 rounded-full border border-white/[0.10] bg-white/[0.04] hover:border-teal-400/40 hover:text-white hover:bg-teal-500/[0.06] hover:scale-105 transition-all duration-200 cursor-default"
             >
               <Icon size={14} className="text-teal-400 shrink-0" />
-              <span className="text-sm text-slate-300 whitespace-nowrap">{name}</span>
+              <span className="text-sm text-white/80 font-medium whitespace-nowrap">{name}</span>
             </motion.div>
           ))}
         </div>

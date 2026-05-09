@@ -9,7 +9,7 @@ const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
 export default function FinalCTA() {
   return (
-    <section className="relative py-24 md:py-32 bg-[#060606] overflow-hidden">
+    <section className="relative py-24 md:py-32 bg-[#070B16] overflow-hidden">
       <PremiumBackground variant="subtle" />
 
       <div className="relative z-10 max-w-3xl mx-auto px-6 md:px-10 text-center">

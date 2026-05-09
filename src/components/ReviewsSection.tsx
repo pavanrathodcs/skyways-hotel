@@ -47,7 +47,7 @@ const PLATFORMS = [
 
 export default function ReviewsSection() {
   return (
-    <section id="reviews" className="py-16 md:py-24 bg-[#0F0F0F]">
+    <section id="reviews" className="py-16 md:py-24 bg-[#070B16]">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
 
         {/* Header */}
@@ -55,23 +55,19 @@ export default function ReviewsSection() {
           <p className="text-teal-400 text-xs uppercase tracking-widest mb-3">Guest Reviews</p>
           <h2 className="font-display text-4xl md:text-5xl text-white leading-tight mb-3">
             What guests{" "}
-            <em className="italic text-rose-400">say</em>
+            <em className="italic text-amber-400">say</em>
           </h2>
           <p className="text-slate-500 text-sm">
             Real reviews from verified guests. Average score 6.9/10 across 2,126 reviews.
           </p>
         </div>
 
-        {/* Platform ratings */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+        {/* Platform scores — open strip, no boxes */}
+        <div className="flex flex-wrap justify-center gap-10 md:gap-16 py-8 border-y border-white/[0.08] mb-12">
           {PLATFORMS.map(({ name, score, sub }) => (
-            <div
-              key={name}
-              className="bg-[#141414] rounded-xl p-5 border border-white/[0.08] text-center relative overflow-hidden"
-            >
-              <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-rose-500/40 to-transparent" />
-              <p className="text-3xl font-extrabold text-rose-400 tracking-tight mb-1">{score}</p>
-              <p className="text-xs text-slate-400 leading-snug">{name}</p>
+            <div key={name} className="text-center">
+              <p className="text-3xl font-extrabold text-amber-400 tracking-tight leading-none mb-1">{score}</p>
+              <p className="text-xs text-slate-400">{name}</p>
               <p className="text-[11px] text-slate-600 mt-0.5">{sub}</p>
             </div>
           ))}
@@ -86,19 +82,19 @@ export default function ReviewsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.45, delay: i * 0.07, ease: EASE }}
-              className="bg-[#141414] rounded-xl p-6 border border-white/[0.08] flex flex-col relative overflow-hidden hover:border-rose-400/20 hover:shadow-lg hover:shadow-rose-500/[0.04] transition-all duration-300"
+              className="bg-white/[0.03] rounded-xl p-6 border border-white/[0.08] flex flex-col relative overflow-hidden hover:border-white/20 transition-all duration-300"
             >
               {/* Decorative quote mark */}
               <div
                 aria-hidden="true"
-                className="absolute -top-2 -right-2 text-[6rem] leading-none text-rose-400/10 font-serif select-none pointer-events-none"
+                className="absolute -top-2 -right-2 text-[6rem] leading-none text-amber-400/10 font-serif select-none pointer-events-none"
               >
                 &rdquo;
               </div>
 
               <div className="flex items-start justify-between mb-3 relative">
-                <span className="text-rose-400 tracking-wider text-base" aria-label="5 stars">★★★★★</span>
-                <span className="text-[11px] font-bold text-rose-400 bg-rose-500/10 border border-rose-500/20 px-2.5 py-1 rounded-full shrink-0">
+                <span className="text-amber-400 tracking-wider text-base" aria-label="5 stars">★★★★★</span>
+                <span className="text-[11px] font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-full shrink-0">
                   {score}
                 </span>
               </div>
@@ -108,7 +104,7 @@ export default function ReviewsSection() {
               </p>
 
               <div className="flex items-center gap-2.5 pt-4 mt-4 border-t border-white/[0.06]">
-                <div className="w-8 h-8 bg-rose-500/10 border border-rose-500/15 rounded-full flex items-center justify-center text-rose-300 font-semibold text-xs shrink-0">
+                <div className="w-8 h-8 bg-white/[0.05] border border-white/20 rounded-full flex items-center justify-center text-slate-300 font-semibold text-xs shrink-0">
                   {name[0].toUpperCase()}
                 </div>
                 <div>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { MapPin, Wifi, Clock, DollarSign } from "lucide-react";
 import PremiumBackground from "@/components/ui/PremiumBackground";
+import MarqueeTicker from "@/components/ui/MarqueeTicker";
 
 const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
@@ -15,17 +16,10 @@ const TRUST_BADGES = [
   { Icon: Clock,      text: "24/7 Front Desk"  },
 ];
 
-const STATS = [
-  { value: "0.8 mi", label: "From LAX"      },
-  { value: "7.2",    label: "Expedia Score" },
-  { value: "Free",   label: "Wi-Fi"         },
-  { value: "24/7",   label: "Front Desk"    },
-];
-
 export default function HeroSection() {
   return (
     <section
-      className="relative bg-[#080808] overflow-hidden"
+      className="relative bg-[#070B16] overflow-hidden"
       aria-label="Skyways Hotel — LAX Airport Hotel"
     >
       <PremiumBackground variant="hero" />
@@ -110,7 +104,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.65, delay: 0.1, ease: EASE }}
           >
-            {/* Rose glow behind image stack */}
+            {/* Amber glow behind image */}
             <div
               aria-hidden="true"
               className="absolute -bottom-16 -right-16 w-80 h-80 bg-amber-500/[0.06] blur-3xl rounded-full pointer-events-none"
@@ -129,7 +123,7 @@ export default function HeroSection() {
 
             {/* Floating card: drive time */}
             <div
-              className="hidden md:flex absolute -bottom-5 -left-5 bg-[#111111] border border-white/[0.10] rounded-2xl shadow-2xl px-5 py-4 items-center gap-3"
+              className="hidden md:flex absolute -bottom-5 -left-5 bg-[#0D1221] border border-white/[0.10] rounded-2xl shadow-2xl px-5 py-4 items-center gap-3"
               style={{ transform: "rotate(-1.5deg)" }}
             >
               <div className="w-10 h-10 bg-teal-500/15 rounded-xl flex items-center justify-center shrink-0">
@@ -143,7 +137,7 @@ export default function HeroSection() {
 
             {/* Floating card: price */}
             <div
-              className="hidden md:block absolute -top-5 -right-5 bg-[#111111] border border-white/[0.10] rounded-2xl shadow-2xl px-5 py-4"
+              className="hidden md:block absolute -top-5 -right-5 bg-[#0D1221] border border-white/[0.10] rounded-2xl shadow-2xl px-5 py-4"
               style={{ transform: "rotate(1.5deg)" }}
             >
               <p className="text-[10px] text-slate-500 uppercase tracking-[0.14em]">Rooms from</p>
@@ -153,20 +147,9 @@ export default function HeroSection() {
             </div>
           </motion.div>
         </div>
-      </div>
 
-      {/* ── Stats strip ── */}
-      <div className="relative z-10 border-t border-white/[0.06] bg-[#0A0A0A]/80 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 py-8">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-0">
-            {STATS.map(({ value, label }) => (
-              <div key={label} className="border-l-2 border-teal-500/50 pl-5">
-                <p className="text-2xl font-bold text-white tracking-tight">{value}</p>
-                <p className="text-[10px] text-white/40 uppercase tracking-[0.16em] mt-0.5">{label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        {/* ── Marquee ticker ── */}
+        <MarqueeTicker />
       </div>
     </section>
   );
