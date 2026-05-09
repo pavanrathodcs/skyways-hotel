@@ -13,7 +13,7 @@ const DINING_DETAILS = [
 
 export default function ExperienceSection() {
   return (
-    <section id="dining" className="py-16 md:py-24 bg-[#0D1627]" aria-label="On-site dining">
+    <section id="dining" className="py-16 md:py-24 bg-[#0B1628]" aria-label="On-site dining">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
@@ -24,10 +24,10 @@ export default function ExperienceSection() {
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.55, ease: EASE }}
           >
-            <p className="text-teal-400 text-xs font-semibold tracking-widest uppercase mb-3">
+            <p className="text-teal-400 text-[10px] font-bold tracking-[0.22em] uppercase mb-3">
               On-Site Dining
             </p>
-            <h2 className="font-bold text-3xl md:text-4xl text-white mb-5 text-balance">
+            <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl text-white tracking-tight mb-5">
               Aliki&apos;s Authentic<br />Greek Taverna
             </h2>
             <p className="text-slate-400 text-base leading-relaxed mb-8">

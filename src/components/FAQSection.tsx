@@ -79,11 +79,11 @@ export default function FAQSection() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-16 md:py-24 bg-[#0B1120]">
+    <section id="faq" className="py-16 md:py-24 bg-[#070B16]">
       <div className="max-w-3xl mx-auto px-6 md:px-10">
         <div className="text-center mb-12">
-          <p className="text-indigo-400 text-xs font-semibold tracking-widest uppercase mb-2">FAQ</p>
-          <h2 className="font-bold text-3xl md:text-4xl text-white">
+          <p className="text-indigo-400 text-[10px] font-bold tracking-[0.22em] uppercase mb-2">FAQ</p>
+          <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl text-white tracking-tight">
             Frequently asked questions
           </h2>
         </div>

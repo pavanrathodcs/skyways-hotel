@@ -40,13 +40,13 @@ const REASONS = [
 
 export default function WhyStaySection() {
   return (
-    <section className="py-16 md:py-24 bg-[#0D1627]">
+    <section className="py-16 md:py-24 bg-[#0B1628]">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <p className="text-indigo-400 text-xs font-semibold tracking-widest uppercase mb-2">
+          <p className="text-indigo-400 text-[10px] font-bold tracking-[0.22em] uppercase mb-2">
             Why Skyways
           </p>
-          <h2 className="font-bold text-3xl md:text-4xl text-white">
+          <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl text-white tracking-tight">
             Why guests choose us
           </h2>
         </div>

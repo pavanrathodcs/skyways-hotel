@@ -5,7 +5,7 @@
 :root {
   --primary:    #6366F1;
   --teal:       #14B8A6;
-  --background: #0B1120;
+  --background: #070B16;
   --foreground: #F8FAFC;
 }
 
@@ -29,7 +29,7 @@
   }
 
   ::-webkit-scrollbar        { width: 4px; }
-  ::-webkit-scrollbar-track  { background: #0B1120; }
+  ::-webkit-scrollbar-track  { background: #070B16; }
   ::-webkit-scrollbar-thumb  { background: #1E293B; border-radius: 2px; }
   ::-webkit-scrollbar-thumb:hover { background: #334155; }
 }

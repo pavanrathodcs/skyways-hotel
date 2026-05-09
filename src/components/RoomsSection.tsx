@@ -25,7 +25,7 @@ function RoomCard({ room, index }: { room: typeof ROOMS[0]; index: number }) {
           sizes="(max-width: 768px) 100vw, 33vw"
         />
         <div className="absolute top-3 left-3">
-          <span className="text-[11px] font-semibold text-white bg-indigo-500 px-2.5 py-1 rounded-full">
+          <span className="text-[11px] font-bold text-white bg-indigo-600 px-2.5 py-1 rounded-full">
             {room.tag}
           </span>
         </div>
@@ -53,7 +53,7 @@ function RoomCard({ room, index }: { room: typeof ROOMS[0]; index: number }) {
 
         <Link
           href="/booking"
-          className="mt-auto block w-full text-center bg-indigo-500 text-white text-sm font-semibold py-2.5 rounded-md hover:bg-indigo-400 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+          className="mt-auto block w-full text-center bg-indigo-600 text-white text-sm font-bold py-3 rounded-xl hover:bg-indigo-500 transition-colors duration-200 shadow-md shadow-indigo-900/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
           aria-label={`Reserve ${room.name}`}
         >
           Reserve This Room
@@ -65,14 +65,14 @@ function RoomCard({ room, index }: { room: typeof ROOMS[0]; index: number }) {
 
 export default function RoomsSection() {
   return (
-    <section id="rooms" className="py-16 md:py-24 bg-[#0B1120]">
+    <section id="rooms" className="py-16 md:py-24 bg-[#070B16]">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="flex items-end justify-between gap-6 mb-10">
           <div>
-            <p className="text-indigo-400 text-xs font-semibold tracking-widest uppercase mb-2">
+            <p className="text-indigo-400 text-[10px] font-bold tracking-[0.22em] uppercase mb-2">
               Accommodations
             </p>
-            <h2 className="font-bold text-3xl md:text-4xl text-white">Our Rooms</h2>
+            <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl text-white tracking-tight">Our Rooms</h2>
           </div>
           <Link
             href="/rooms"

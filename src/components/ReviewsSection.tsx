@@ -47,15 +47,15 @@ const PLATFORMS = [
 
 export default function ReviewsSection() {
   return (
-    <section id="reviews" className="py-16 md:py-24 bg-[#0D1627]">
+    <section id="reviews" className="py-16 md:py-24 bg-[#0B1628]">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
 
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <p className="text-indigo-400 text-xs font-semibold tracking-widest uppercase mb-2">
+          <p className="text-indigo-400 text-[10px] font-bold tracking-[0.22em] uppercase mb-2">
             Guest Reviews
           </p>
-          <h2 className="font-bold text-3xl md:text-4xl text-white mb-3">What guests say</h2>
+          <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl text-white tracking-tight mb-3">What guests say</h2>
           <p className="text-slate-500 text-sm">
             Real reviews from verified guests. Average score 6.9/10 across 2,126 reviews.
           </p>
@@ -65,7 +65,7 @@ export default function ReviewsSection() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
           {PLATFORMS.map(({ name, score, sub }) => (
             <div key={name} className="bg-[#111827] rounded-xl p-5 border border-white/[0.08] text-center">
-              <p className="text-2xl font-bold text-white mb-1">{score}</p>
+              <p className="text-3xl font-extrabold text-white tracking-tight mb-1">{score}</p>
               <p className="text-xs text-slate-400 leading-snug">{name}</p>
               <p className="text-[11px] text-slate-600 mt-0.5">{sub}</p>
             </div>

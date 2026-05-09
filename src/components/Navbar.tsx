@@ -41,8 +41,8 @@ export default function Navbar() {
       <motion.header
         className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-[#0B1120] border-b border-white/[0.08]"
-            : "bg-[#0B1120]/80 backdrop-blur-md"
+            ? "bg-[#070B16] border-b border-white/[0.08]"
+            : "bg-[#070B16]/80 backdrop-blur-md"
         }`}
         initial={{ opacity: 0, y: -12 }}
         animate={{ opacity: 1, y: 0 }}
@@ -73,7 +73,7 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             <Link
               href="/booking"
-              className="hidden lg:inline-flex items-center bg-indigo-500 text-white text-sm font-semibold px-5 py-2.5 rounded-md hover:bg-indigo-400 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+              className="hidden lg:inline-flex items-center bg-indigo-600 text-white text-sm font-bold px-5 py-2.5 rounded-xl hover:bg-indigo-500 transition-colors duration-200 shadow-md shadow-indigo-900/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
             >
               Book Now
             </Link>
@@ -95,7 +95,7 @@ export default function Navbar() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className="fixed inset-0 z-40 bg-[#0B1120] flex flex-col"
+            className="fixed inset-0 z-40 bg-[#070B16] flex flex-col"
             initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
@@ -138,7 +138,7 @@ export default function Navbar() {
               <Link
                 href="/booking"
                 onClick={() => setMenuOpen(false)}
-                className="block w-full text-center bg-indigo-500 text-white text-sm font-semibold px-6 py-3.5 rounded-md hover:bg-indigo-400 transition-colors duration-200 focus-visible:outline-none"
+                className="block w-full text-center bg-indigo-600 text-white text-sm font-bold px-6 py-3.5 rounded-xl hover:bg-indigo-500 transition-colors duration-200 focus-visible:outline-none"
               >
                 Book Now
               </Link>

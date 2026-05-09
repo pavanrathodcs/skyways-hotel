@@ -30,7 +30,7 @@ const TRANSPORT = [
 
 export default function LocationSection() {
   return (
-    <section id="location" className="py-16 md:py-24 bg-[#0B1120]">
+    <section id="location" className="py-16 md:py-24 bg-[#070B16]">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
@@ -41,10 +41,10 @@ export default function LocationSection() {
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.55, ease: EASE }}
           >
-            <p className="text-indigo-400 text-xs font-semibold tracking-widest uppercase mb-3">
+            <p className="text-indigo-400 text-[10px] font-bold tracking-[0.22em] uppercase mb-3">
               Location &amp; Transport
             </p>
-            <h2 className="font-bold text-3xl md:text-4xl text-white mb-1">Getting here</h2>
+            <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl text-white tracking-tight mb-1">Getting here</h2>
             <p className="text-slate-500 text-sm mb-8">5860 Arbor Vitae St, Los Angeles, CA 90045</p>
 
             <div className="space-y-6">
