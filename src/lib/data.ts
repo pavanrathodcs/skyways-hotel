@@ -65,7 +65,7 @@ export const ROOMS: Room[] = [
     priceDisplay: '$89',
     size: '250 sq ft',
     image: '/rooms/accessible.jpg',
-    gradient: 'from-[#0a0f0a] via-[#111811] to-[#0a0f0a]',
+    gradient: 'from-[#070B16] via-[#0D1221] to-[#070B16]',
     glowClass: 'bg-[#0f2010]/40',
     features: ['Roll-In Shower', 'Grab Bars', 'Shower Bench', 'Wide Doorways'],
   },

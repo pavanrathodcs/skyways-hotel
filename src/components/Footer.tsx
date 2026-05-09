@@ -17,7 +17,7 @@ const FOOTER_LINKS = {
 
 export default function Footer() {
   return (
-    <footer id="contact" className="bg-navy border-t border-white/[0.06]">
+    <footer id="contact" className="bg-[#070B16] border-t border-white/[0.06]">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
 
         {/* Main grid */}

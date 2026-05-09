@@ -8,32 +8,32 @@ const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 const REVIEWS = [
   {
     name: "Kara",
-    score: "10/10",
+    score: "10",
     text: "Super close to rental car return, clean, nice staff, comfy bed & AMAZING Greek restaurant!!! Highly suggest!",
   },
   {
     name: "Sharon",
-    score: "9/10",
+    score: "9",
     text: "Extremely friendly and helpful staff. Cash made us feel like old friends. Excellent location. Comfortable beds, lovely courtyard.",
   },
   {
     name: "Laura",
-    score: "9/10",
+    score: "9",
     text: "Convenient to airport. I was worried about airplane noise at night, but on the bottom floor with the fan going the noise level was fine. A nice little Greek restaurant right next door — great value for the area.",
   },
   {
     name: "Melanie",
-    score: "10/10",
+    score: "10",
     text: "Lovely, helpful owners. Very clean, spacious, quiet room. Close to airport.",
   },
   {
     name: "Frank",
-    score: "10/10",
+    score: "10",
     text: "Staff was very friendly and accommodating — room was nice, had everything I needed, nothing fancy but clean and comfortable.",
   },
   {
     name: "Roger",
-    score: "9/10",
+    score: "9",
     text: "Great service and staff. The Greek restaurant is top class too!",
   },
 ];
@@ -44,6 +44,40 @@ const PLATFORMS = [
   { name: "Booking.com",          score: "2,140+",   sub: "Verified reviews"         },
   { name: "Trivago",              score: "3,757",    sub: "Reviews · 43 photos"      },
 ];
+
+// Split reviews into 3 columns of 2
+const COLS = [REVIEWS.slice(0, 2), REVIEWS.slice(2, 4), REVIEWS.slice(4, 6)];
+
+function ReviewItem({ name, score, text, delay }: { name: string; score: string; text: string; delay: number }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.45, delay, ease: EASE }}
+      className="py-8 border-b border-white/[0.06] last:border-0"
+    >
+      <div className="flex items-center gap-3 mb-3">
+        <span className="text-amber-400 text-sm tracking-wider" aria-label="5 stars">★★★★★</span>
+        <span className="text-amber-400/60 text-xs font-medium">{score}/10</span>
+      </div>
+
+      <p className="text-white/80 text-base leading-relaxed mb-4">
+        &ldquo;{text}&rdquo;
+      </p>
+
+      <div className="flex items-center gap-2">
+        <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs text-white/60 font-medium shrink-0">
+          {name[0].toUpperCase()}
+        </div>
+        <div>
+          <span className="text-white/70 text-sm font-medium">{name}</span>
+          <span className="text-white/30 text-xs ml-2">Verified guest</span>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function ReviewsSection() {
   return (
@@ -73,51 +107,25 @@ export default function ReviewsSection() {
           ))}
         </div>
 
-        {/* Review cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
-          {REVIEWS.map(({ name, score, text }, i) => (
-            <motion.div
-              key={name + i}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.45, delay: i * 0.07, ease: EASE }}
-              className="bg-white/[0.03] rounded-xl p-6 border border-white/[0.08] flex flex-col relative overflow-hidden hover:border-white/20 transition-all duration-300"
-            >
-              {/* Decorative quote mark */}
-              <div
-                aria-hidden="true"
-                className="absolute -top-2 -right-2 text-[6rem] leading-none text-amber-400/10 font-serif select-none pointer-events-none"
-              >
-                &rdquo;
-              </div>
-
-              <div className="flex items-start justify-between mb-3 relative">
-                <span className="text-amber-400 tracking-wider text-base" aria-label="5 stars">★★★★★</span>
-                <span className="text-[11px] font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-full shrink-0">
-                  {score}
-                </span>
-              </div>
-
-              <p className="text-slate-300 text-sm leading-relaxed flex-1 relative">
-                {text}
-              </p>
-
-              <div className="flex items-center gap-2.5 pt-4 mt-4 border-t border-white/[0.06]">
-                <div className="w-8 h-8 bg-white/[0.05] border border-white/20 rounded-full flex items-center justify-center text-slate-300 font-semibold text-xs shrink-0">
-                  {name[0].toUpperCase()}
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-white">{name}</p>
-                  <p className="text-xs text-slate-500">Verified guest</p>
-                </div>
-              </div>
-            </motion.div>
+        {/* Review columns — no boxes, just clean text */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-x-12">
+          {COLS.map((col, ci) => (
+            <div key={ci}>
+              {col.map((r, ri) => (
+                <ReviewItem
+                  key={r.name}
+                  name={r.name}
+                  score={r.score}
+                  text={r.text}
+                  delay={(ci * 2 + ri) * 0.07}
+                />
+              ))}
+            </div>
           ))}
         </div>
 
         {/* Aircraft noise tip */}
-        <div className="flex items-start gap-3 bg-yellow-900/20 border border-yellow-600/30 rounded-xl p-4 max-w-2xl mx-auto">
+        <div className="flex items-start gap-3 bg-yellow-900/20 border border-yellow-600/30 rounded-xl p-4 max-w-2xl mx-auto mt-8">
           <AlertCircle size={16} className="text-yellow-400 shrink-0 mt-0.5" />
           <p className="text-sm text-yellow-300">
             <strong>Good to know:</strong> Guests sensitive to aircraft noise may prefer

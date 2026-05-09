@@ -12,14 +12,18 @@
 @layer base {
   * { box-sizing: border-box; }
 
-  html {
-    scroll-behavior: smooth;
+  html,
+  body {
+    background-color: #070B16 !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    background-color: var(--background);
     color: var(--foreground);
   }
 

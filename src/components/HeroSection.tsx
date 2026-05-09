@@ -25,7 +25,7 @@ export default function HeroSection() {
       <PremiumBackground variant="hero" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center py-24 lg:py-32 pt-32 lg:pt-36">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center pt-32 lg:pt-36 pb-10">
 
           {/* ── Left column ── */}
           <div>
