@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
 const FAQS = [
   {
@@ -45,18 +45,18 @@ function FAQItem({
   q: string; a: string; open: boolean; onToggle: () => void;
 }) {
   return (
-    <div className="border-b border-white/[0.07] last:border-b-0">
+    <div className={`border-b border-white/[0.07] last:border-b-0 transition-colors duration-200 ${open ? "bg-teal-500/[0.03]" : ""}`}>
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between py-5 text-left gap-4 focus-visible:outline-none group"
+        className="w-full flex items-center justify-between py-5 px-6 text-left gap-4 focus-visible:outline-none group"
         aria-expanded={open}
       >
-        <span className={`font-semibold text-sm md:text-base leading-snug transition-colors duration-200 ${open ? "text-indigo-300" : "text-slate-100 group-hover:text-white"}`}>
+        <span className={`font-display text-base md:text-lg leading-snug transition-colors duration-200 ${open ? "text-white" : "text-slate-200 group-hover:text-white"}`}>
           {q}
         </span>
-        <ChevronDown
+        <ChevronRight
           size={18}
-          className={`shrink-0 transition-all duration-200 ${open ? "rotate-180 text-indigo-400" : "text-slate-500 group-hover:text-slate-300"}`}
+          className={`shrink-0 transition-all duration-200 ${open ? "rotate-90 text-teal-400" : "text-slate-500 group-hover:text-slate-300"}`}
         />
       </button>
 
@@ -69,7 +69,7 @@ function FAQItem({
             transition={{ duration: 0.22, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <p className="text-slate-400 text-sm leading-relaxed pb-5 pl-4 border-l-2 border-indigo-500/30">
+            <p className="text-slate-400 text-sm leading-relaxed pb-5 px-6 pl-10 border-l-2 border-teal-500/40 ml-6">
               {a}
             </p>
           </motion.div>
@@ -86,22 +86,21 @@ export default function FAQSection() {
     <section id="faq" className="py-16 md:py-24 bg-[#070B16]">
       <div className="max-w-3xl mx-auto px-6 md:px-10">
         <div className="text-center mb-12">
-          <p className="text-indigo-400 text-[10px] font-bold tracking-[0.22em] uppercase mb-2">FAQ</p>
-          <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl text-white tracking-tight">
-            Frequently asked questions
+          <p className="text-teal-400 text-xs uppercase tracking-widest mb-3">Common Questions</p>
+          <h2 className="font-display text-4xl md:text-5xl text-white leading-tight">
+            Good to <em className="italic text-amber-400">know</em>
           </h2>
         </div>
 
-        <div className="border border-white/[0.07] rounded-2xl bg-[#0C1220] divide-y divide-white/[0.07] overflow-hidden">
+        <div className="border border-white/[0.07] rounded-2xl bg-[#0C1220] overflow-hidden divide-y divide-white/[0.07]">
           {FAQS.map((item, i) => (
-            <div key={i} className="px-6">
-              <FAQItem
-                q={item.q}
-                a={item.a}
-                open={open === i}
-                onToggle={() => setOpen(open === i ? null : i)}
-              />
-            </div>
+            <FAQItem
+              key={i}
+              q={item.q}
+              a={item.a}
+              open={open === i}
+              onToggle={() => setOpen(open === i ? null : i)}
+            />
           ))}
         </div>
       </div>

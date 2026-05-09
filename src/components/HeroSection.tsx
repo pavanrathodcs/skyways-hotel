@@ -40,21 +40,21 @@ export default function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, ease: EASE }}
             >
-              <span className="inline-flex items-center gap-2 text-indigo-400 text-[10px] font-bold tracking-[0.22em] uppercase bg-indigo-500/10 border border-indigo-500/20 px-3.5 py-1.5 rounded-full mb-7">
+              <span className="inline-flex items-center gap-2 text-teal-400 text-[10px] font-bold tracking-[0.22em] uppercase bg-teal-500/10 border border-teal-500/20 px-3.5 py-1.5 rounded-full mb-7">
                 <MapPin size={9} />
                 LAX Airport Hotel · Los Angeles, CA
               </span>
             </motion.div>
 
             <motion.h1
-              className="font-sans font-extrabold text-5xl md:text-6xl lg:text-[4.5rem] text-white tracking-tight leading-[1.0] mb-6"
+              className="font-display text-5xl md:text-6xl lg:text-[5rem] text-white leading-[1.05] mb-6"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.06, ease: EASE }}
             >
               Rest Easy<br />
-              <span className="text-indigo-400">Minutes</span><br />
-              from LAX
+              <em className="italic text-teal-400">Minutes</em><br />
+              from{" "}<em className="italic text-amber-400">LAX</em>
             </motion.h1>
 
             <motion.p
@@ -110,6 +110,12 @@ export default function HeroSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.65, delay: 0.1, ease: EASE }}
           >
+            {/* Amber glow behind image stack */}
+            <div
+              aria-hidden="true"
+              className="absolute -bottom-16 -right-16 w-80 h-80 bg-amber-500/[0.07] blur-3xl rounded-full pointer-events-none"
+            />
+
             <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-black/60 aspect-[4/3] ring-1 ring-white/[0.06]">
               <Image
                 src="/rooms/queen-room.jpg"
@@ -122,9 +128,12 @@ export default function HeroSection() {
             </div>
 
             {/* Floating card: drive time */}
-            <div className="hidden md:flex absolute -bottom-5 -left-5 bg-[#0F172A] border border-white/[0.10] rounded-2xl shadow-2xl px-5 py-4 items-center gap-3">
-              <div className="w-10 h-10 bg-indigo-500/15 rounded-xl flex items-center justify-center shrink-0">
-                <MapPin size={16} className="text-indigo-400" />
+            <div
+              className="hidden md:flex absolute -bottom-5 -left-5 bg-[#0F172A] border border-white/[0.10] rounded-2xl shadow-2xl px-5 py-4 items-center gap-3"
+              style={{ transform: "rotate(-1.5deg)" }}
+            >
+              <div className="w-10 h-10 bg-teal-500/15 rounded-xl flex items-center justify-center shrink-0">
+                <MapPin size={16} className="text-teal-400" />
               </div>
               <div>
                 <p className="text-[10px] text-slate-500 uppercase tracking-[0.14em]">Drive to LAX</p>
@@ -133,9 +142,12 @@ export default function HeroSection() {
             </div>
 
             {/* Floating card: price */}
-            <div className="hidden md:block absolute -top-5 -right-5 bg-[#0F172A] border border-white/[0.10] rounded-2xl shadow-2xl px-5 py-4">
+            <div
+              className="hidden md:block absolute -top-5 -right-5 bg-[#0F172A] border border-white/[0.10] rounded-2xl shadow-2xl px-5 py-4"
+              style={{ transform: "rotate(1.5deg)" }}
+            >
               <p className="text-[10px] text-slate-500 uppercase tracking-[0.14em]">Rooms from</p>
-              <p className="text-2xl font-extrabold text-indigo-400 leading-none mt-0.5">
+              <p className="text-2xl font-extrabold text-amber-400 leading-none mt-0.5">
                 $89<span className="text-sm text-slate-500 font-normal ml-1">/night</span>
               </p>
             </div>
@@ -144,13 +156,13 @@ export default function HeroSection() {
       </div>
 
       {/* ── Stats strip ── */}
-      <div className="relative z-10 border-t border-white/[0.06] bg-[#0A1020]/70 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 py-6">
-          <div className="grid grid-cols-2 sm:grid-cols-4 sm:divide-x divide-white/[0.06]">
+      <div className="relative z-10 border-t border-white/[0.06] bg-[#0A1020]/80 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 py-8">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-0">
             {STATS.map(({ value, label }) => (
-              <div key={label} className="text-center py-3 px-4">
-                <p className="text-3xl font-extrabold text-indigo-300 tracking-tight">{value}</p>
-                <p className="text-[10px] text-slate-500 uppercase tracking-[0.16em] mt-1">{label}</p>
+              <div key={label} className="border-l-2 border-teal-500/50 pl-5">
+                <p className="text-2xl font-bold text-white tracking-tight">{value}</p>
+                <p className="text-[10px] text-slate-500 uppercase tracking-[0.16em] mt-0.5">{label}</p>
               </div>
             ))}
           </div>

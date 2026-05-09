@@ -9,48 +9,42 @@ import {
 const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
 const AMENITIES = [
-  { Icon: Wifi,            name: "Free Wi-Fi",              desc: "High-speed internet in every room and throughout the property." },
-  { Icon: Bell,            name: "24-Hour Front Desk",       desc: "Available 24/7 for check-in, assistance, and local information." },
-  { Icon: Home,            name: "Daily Housekeeping",       desc: "Rooms cleaned daily. Fresh linens every morning." },
-  { Icon: Users,           name: "Family Rooms",             desc: "Spacious rooms with multiple beds, ideal for families." },
-  { Icon: Accessibility,   name: "Wheelchair Accessible",    desc: "Roll-in shower, grab bars, lower sinks, shower bench, and wide doorways." },
-  { Icon: UtensilsCrossed, name: "On-Site Greek Restaurant", desc: "Aliki's Authentic Greek Taverna — lunch and dinner, vegan and gluten-free options." },
-  { Icon: ShoppingCart,    name: "Vending Machine",          desc: "Cold drinks available on-site 24/7." },
-  { Icon: Shield,          name: "CCTV Security",            desc: "Security cameras and key card entry throughout the property." },
-  { Icon: KeyRound,        name: "Private Check-In",         desc: "Quick, private check-in and check-out for all guests." },
-  { Icon: Languages,       name: "Multilingual Staff",       desc: "Staff fluent in English, Spanish, and Hindi." },
+  { Icon: Wifi,            name: "Free Wi-Fi"              },
+  { Icon: Bell,            name: "24-Hour Front Desk"       },
+  { Icon: Home,            name: "Daily Housekeeping"       },
+  { Icon: Users,           name: "Family Rooms"             },
+  { Icon: Accessibility,   name: "Wheelchair Accessible"    },
+  { Icon: UtensilsCrossed, name: "On-Site Greek Restaurant" },
+  { Icon: ShoppingCart,    name: "Vending Machine"          },
+  { Icon: Shield,          name: "CCTV Security"            },
+  { Icon: KeyRound,        name: "Private Check-In"         },
+  { Icon: Languages,       name: "Multilingual Staff"       },
 ];
 
 export default function AmenitiesSection() {
   return (
     <section id="amenities" className="py-16 md:py-24 bg-[#070B16]">
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <p className="text-teal-400 text-[10px] font-bold tracking-[0.22em] uppercase mb-2">
-            Amenities
-          </p>
-          <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl text-white tracking-tight">
-            What&apos;s included
+      <div className="max-w-5xl mx-auto px-6 md:px-10">
+        <div className="text-center mb-12">
+          <p className="text-teal-400 text-xs uppercase tracking-widest mb-3">What&apos;s Included</p>
+          <h2 className="font-display text-4xl md:text-5xl text-white leading-tight">
+            Included with{" "}
+            <em className="italic text-amber-400">every stay</em>
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {AMENITIES.map(({ Icon, name, desc }, i) => (
+        <div className="flex flex-wrap justify-center gap-3">
+          {AMENITIES.map(({ Icon, name }, i) => (
             <motion.div
               key={name}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.4, delay: i * 0.05, ease: EASE }}
-              className="flex items-start gap-4 p-5 rounded-xl border border-white/[0.08] bg-[#111827] hover:border-white/[0.16] hover:bg-[#0f1929] transition-all duration-200"
+              initial={{ opacity: 0, scale: 0.93 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: i * 0.04, ease: EASE }}
+              className="flex items-center gap-2 px-4 py-2.5 rounded-full border border-white/[0.10] bg-white/[0.04] hover:border-teal-400/50 hover:text-teal-300 hover:bg-teal-500/[0.06] transition-all duration-200 cursor-default"
             >
-              <div className="w-9 h-9 bg-teal-500/10 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
-                <Icon size={17} className="text-teal-400" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-slate-100 text-sm mb-1">{name}</h3>
-                <p className="text-slate-500 text-xs leading-relaxed">{desc}</p>
-              </div>
+              <Icon size={14} className="text-teal-400 shrink-0" />
+              <span className="text-sm text-slate-300 whitespace-nowrap">{name}</span>
             </motion.div>
           ))}
         </div>

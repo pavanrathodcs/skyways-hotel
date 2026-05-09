@@ -52,11 +52,10 @@ export default function ReviewsSection() {
 
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <p className="text-indigo-400 text-[10px] font-bold tracking-[0.22em] uppercase mb-2">
-            Guest Reviews
-          </p>
-          <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl text-white tracking-tight mb-3">
-            What guests say
+          <p className="text-teal-400 text-xs uppercase tracking-widest mb-3">Guest Reviews</p>
+          <h2 className="font-display text-4xl md:text-5xl text-white leading-tight mb-3">
+            What guests{" "}
+            <em className="italic text-amber-400">say</em>
           </h2>
           <p className="text-slate-500 text-sm">
             Real reviews from verified guests. Average score 6.9/10 across 2,126 reviews.
@@ -68,10 +67,10 @@ export default function ReviewsSection() {
           {PLATFORMS.map(({ name, score, sub }) => (
             <div
               key={name}
-              className="bg-[#111827] rounded-xl p-5 border border-white/[0.08] text-center relative overflow-hidden"
+              className="bg-[#0D1221] rounded-xl p-5 border border-white/[0.08] text-center relative overflow-hidden"
             >
-              <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-indigo-500/30 to-transparent" />
-              <p className="text-3xl font-extrabold text-indigo-300 tracking-tight mb-1">{score}</p>
+              <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
+              <p className="text-3xl font-extrabold text-amber-400 tracking-tight mb-1">{score}</p>
               <p className="text-xs text-slate-400 leading-snug">{name}</p>
               <p className="text-[11px] text-slate-600 mt-0.5">{sub}</p>
             </div>
@@ -87,23 +86,29 @@ export default function ReviewsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.45, delay: i * 0.07, ease: EASE }}
-              className="bg-[#111827] rounded-xl p-6 border border-white/[0.08] flex flex-col"
+              className="bg-[#0D1221] rounded-xl p-6 border border-white/[0.08] flex flex-col relative overflow-hidden hover:border-amber-400/20 hover:shadow-lg hover:shadow-amber-500/[0.04] transition-all duration-300"
             >
-              <div className="flex items-start justify-between mb-3">
-                <span aria-hidden="true" className="text-[2.75rem] leading-none text-indigo-400/20 -mt-2 select-none font-serif">
-                  &ldquo;
-                </span>
-                <span className="text-[11px] font-bold text-indigo-300 bg-indigo-500/10 border border-indigo-500/20 px-2.5 py-1 rounded-full shrink-0">
+              {/* Decorative quote mark */}
+              <div
+                aria-hidden="true"
+                className="absolute -top-2 -right-2 text-[6rem] leading-none text-amber-400/10 font-serif select-none pointer-events-none"
+              >
+                &rdquo;
+              </div>
+
+              <div className="flex items-start justify-between mb-3 relative">
+                <span className="text-amber-400 tracking-wider text-base" aria-label="5 stars">★★★★★</span>
+                <span className="text-[11px] font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-full shrink-0">
                   {score}
                 </span>
               </div>
 
-              <p className="text-slate-300 text-sm leading-relaxed flex-1 -mt-2">
+              <p className="text-slate-300 text-sm leading-relaxed flex-1 relative">
                 {text}
               </p>
 
               <div className="flex items-center gap-2.5 pt-4 mt-4 border-t border-white/[0.06]">
-                <div className="w-8 h-8 bg-indigo-500/15 rounded-full flex items-center justify-center text-indigo-300 font-semibold text-xs shrink-0">
+                <div className="w-8 h-8 bg-amber-500/10 border border-amber-500/15 rounded-full flex items-center justify-center text-amber-300 font-semibold text-xs shrink-0">
                   {name[0].toUpperCase()}
                 </div>
                 <div>
@@ -115,7 +120,7 @@ export default function ReviewsSection() {
           ))}
         </div>
 
-        {/* Noise tip */}
+        {/* Aircraft noise tip */}
         <div className="flex items-start gap-3 bg-yellow-900/20 border border-yellow-600/30 rounded-xl p-4 max-w-2xl mx-auto">
           <AlertCircle size={16} className="text-yellow-400 shrink-0 mt-0.5" />
           <p className="text-sm text-yellow-300">

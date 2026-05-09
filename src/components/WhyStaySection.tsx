@@ -43,31 +43,37 @@ export default function WhyStaySection() {
     <section className="py-16 md:py-24 bg-[#0B1628]">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <p className="text-indigo-400 text-[10px] font-bold tracking-[0.22em] uppercase mb-2">
-            Why Skyways
-          </p>
-          <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl text-white tracking-tight">
-            Why guests choose us
+          <p className="text-teal-400 text-xs uppercase tracking-widest mb-3">Why Stay</p>
+          <h2 className="font-display text-4xl md:text-5xl text-white leading-tight">
+            Why guests{" "}
+            <em className="italic text-amber-400">choose us</em>
           </h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {REASONS.map(({ Icon, title, desc }, i) => (
-            <motion.div
-              key={title}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.45, delay: i * 0.07, ease: EASE }}
-              className="bg-[#111827] rounded-xl p-6 border border-white/[0.08] hover:border-white/[0.14] transition-colors duration-200"
-            >
-              <div className="w-10 h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-4">
-                <Icon size={20} className="text-indigo-400" />
-              </div>
-              <h3 className="font-semibold text-white mb-2">{title}</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">{desc}</p>
-            </motion.div>
-          ))}
+          {REASONS.map(({ Icon, title, desc }, i) => {
+            const isTeal = i % 2 === 0;
+            return (
+              <motion.div
+                key={title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.45, delay: i * 0.07, ease: EASE }}
+                className="relative bg-[#0D1221] rounded-xl overflow-hidden border border-white/[0.08] hover:border-white/[0.16] hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/40 transition-all duration-300 p-6"
+              >
+                {/* Top accent bar */}
+                <div className={`absolute top-0 left-0 right-0 h-[2px] ${isTeal ? "bg-teal-400" : "bg-amber-400"}`} />
+
+                <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-5 ${isTeal ? "bg-teal-500/10" : "bg-amber-500/10"}`}>
+                  <Icon size={22} className={isTeal ? "text-teal-400" : "text-amber-400"} />
+                </div>
+
+                <h3 className="font-semibold text-white mb-2 text-[15px] leading-snug">{title}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">{desc}</p>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

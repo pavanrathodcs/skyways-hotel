@@ -8,6 +8,7 @@ import SmoothScroll from "@/components/SmoothScroll";
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
+  style: ["normal", "italic"],
   display: "swap",
 });
 
