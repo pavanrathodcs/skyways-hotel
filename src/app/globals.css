@@ -25,6 +25,7 @@
 
   body {
     color: var(--foreground);
+    font-family: theme('fontFamily.sans');
   }
 
   ::selection {

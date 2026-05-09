@@ -3,18 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { MapPin, Wifi, Clock, DollarSign } from "lucide-react";
+import { MapPin } from "lucide-react";
 import PremiumBackground from "@/components/ui/PremiumBackground";
 import MarqueeTicker from "@/components/ui/MarqueeTicker";
 
 const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
-
-const TRUST_BADGES = [
-  { Icon: MapPin,     text: "0.8 mi from LAX" },
-  { Icon: DollarSign, text: "From $89/night"   },
-  { Icon: Wifi,       text: "Free Wi-Fi"       },
-  { Icon: Clock,      text: "24/7 Front Desk"  },
-];
 
 export default function HeroSection() {
   return (
@@ -25,7 +18,7 @@ export default function HeroSection() {
       <PremiumBackground variant="hero" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center pt-32 lg:pt-36 pb-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center pt-32 lg:pt-36">
 
           {/* ── Left column ── */}
           <div>
@@ -62,7 +55,7 @@ export default function HeroSection() {
             </motion.p>
 
             <motion.div
-              className="flex flex-col sm:flex-row gap-3 mb-10"
+              className="flex flex-col sm:flex-row gap-3"
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.18, ease: EASE }}
@@ -79,21 +72,6 @@ export default function HeroSection() {
               >
                 View Rooms
               </Link>
-            </motion.div>
-
-            {/* Trust badges */}
-            <motion.div
-              className="flex flex-wrap gap-5"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.28 }}
-            >
-              {TRUST_BADGES.map(({ Icon, text }) => (
-                <div key={text} className="flex items-center gap-2 text-slate-400 text-sm">
-                  <Icon size={13} className="text-teal-400 shrink-0" />
-                  {text}
-                </div>
-              ))}
             </motion.div>
           </div>
 
@@ -149,7 +127,9 @@ export default function HeroSection() {
         </div>
 
         {/* ── Marquee ticker ── */}
-        <MarqueeTicker />
+        <div className="mt-8">
+          <MarqueeTicker />
+        </div>
       </div>
     </section>
   );
