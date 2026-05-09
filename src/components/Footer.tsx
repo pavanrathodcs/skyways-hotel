@@ -10,10 +10,16 @@ const FOOTER_LINKS = {
   Info: [
     { label: "Reviews",    href: "/#reviews"   },
     { label: "FAQ",        href: "/#faq"       },
-    { label: "Contact",    href: "/#contact"   },
+    { label: "Contact",    href: "/contact"    },
     { label: "Book Now",   href: "/booking"    },
   ],
 } as const;
+
+const LEGAL_LINKS = [
+  { label: "Privacy Policy", href: "/privacy"       },
+  { label: "Terms of Use",   href: "/terms"         },
+  { label: "Accessibility",  href: "/accessibility" },
+] as const;
 
 export default function Footer() {
   return (
@@ -44,6 +50,12 @@ export default function Footer() {
                 className="text-slate-400 text-xs mt-3 block hover:text-white transition-colors duration-200 focus-visible:outline-none focus-visible:text-white"
               >
                 +1 424 750 9970
+              </a>
+              <a
+                href="mailto:skywayshotels@gmail.com"
+                className="text-slate-400 text-xs mt-1 block hover:text-white transition-colors duration-200 focus-visible:outline-none focus-visible:text-white break-all"
+              >
+                skywayshotels@gmail.com
               </a>
             </address>
           </div>
@@ -93,13 +105,13 @@ export default function Footer() {
             &copy; 2026 Skyways Hotel, Los Angeles.
           </p>
           <div className="flex items-center gap-6">
-            {["Privacy Policy", "Terms of Use", "Accessibility"].map((item) => (
+            {LEGAL_LINKS.map(({ label, href }) => (
               <Link
-                key={item}
-                href="#"
+                key={label}
+                href={href}
                 className="text-slate-600 text-[11px] hover:text-slate-400 transition-colors duration-200 focus-visible:outline-none"
               >
-                {item}
+                {label}
               </Link>
             ))}
           </div>
