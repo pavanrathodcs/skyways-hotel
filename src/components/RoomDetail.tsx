@@ -51,15 +51,15 @@ export default function RoomDetail({ room }: { room: RoomDetailData }) {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#070B16] via-[#070B16]/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#070B16] via-[#070B16]/50 to-transparent" />
 
         {/* Back link */}
         <Link
           href="/rooms"
-          className="absolute top-6 left-6 z-10 inline-flex items-center gap-1 text-teal-400 text-xs uppercase tracking-widest hover:text-amber-400 transition-colors duration-200 focus-visible:outline-none focus-visible:text-amber-400"
+          className="absolute top-6 left-6 z-10 inline-flex items-center gap-1 text-teal-400 text-sm hover:text-white transition-colors duration-200 focus-visible:outline-none focus-visible:text-white"
         >
           <ChevronLeft size={14} />
-          Rooms
+          All Rooms
         </Link>
 
         {/* Name + price overlay */}
@@ -82,7 +82,7 @@ export default function RoomDetail({ room }: { room: RoomDetailData }) {
 
           {/* Booking summary — DOM first so it appears above content on mobile, lg:order-2 to swap on desktop */}
           <aside className="lg:order-2 lg:sticky lg:top-28 self-start">
-            <div className="bg-[#0D1221] border border-white/10 border-t-2 border-t-amber-400/60 rounded-2xl p-6 shadow-xl shadow-black/50">
+            <div className="bg-[#0D1221] border border-white/10 border-t-2 border-t-amber-400 rounded-2xl p-6 shadow-xl shadow-black/50">
               <p className="text-[10px] text-slate-500 uppercase tracking-[0.14em] mb-2">{room.name}</p>
               <p className="leading-none mb-6">
                 <span className="font-display text-5xl text-amber-400">{room.price}</span>
@@ -113,7 +113,7 @@ export default function RoomDetail({ room }: { room: RoomDetailData }) {
                 </li>
               </ul>
 
-              <p className="italic text-xs text-white/40 mt-6 leading-relaxed">
+              <p className="italic text-xs text-white/40 mt-3 leading-relaxed">
                 Pay at check-in — no payment required online.
               </p>
             </div>
@@ -208,15 +208,11 @@ export default function RoomDetail({ room }: { room: RoomDetailData }) {
 
       {/* ── Bottom CTA ── */}
       <section className="py-20">
-        <div className="max-w-2xl mx-auto px-6 md:px-10 text-center">
-          <p className="text-indigo-400 text-[10px] font-bold tracking-[0.22em] uppercase mb-5">
-            Ready to book?
-          </p>
+        <div className="max-w-lg mx-auto px-6 md:px-10 text-center">
           <h2 className="font-display text-4xl md:text-5xl text-white leading-tight mb-5">
-            Reserve the{" "}
-            <em className="italic text-amber-400">{room.name}</em>
+            Ready to <em className="italic text-amber-400">book?</em>
           </h2>
-          <p className="text-white/60 text-base leading-7 mb-10 max-w-md mx-auto">
+          <p className="text-white/60 text-base leading-7 mb-10">
             Book directly for the best rate. Pay at check-in — no payment required online.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center">
@@ -228,10 +224,10 @@ export default function RoomDetail({ room }: { room: RoomDetailData }) {
             </Link>
             <Link
               href="/rooms"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 text-sm text-slate-400 hover:text-white border border-white/10 hover:border-white/30 px-10 py-4 rounded-xl transition-colors duration-200"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 text-sm text-slate-400 hover:text-white transition-colors duration-200 px-4 py-4"
             >
               <ChevronLeft size={14} />
-              Back to rooms
+              Back to all rooms
             </Link>
           </div>
         </div>
