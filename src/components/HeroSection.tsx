@@ -54,7 +54,7 @@ export default function HeroSection() {
             >
               Rest Easy<br />
               <em className="italic text-teal-400">Minutes</em><br />
-              from{" "}<em className="italic text-rose-400">LAX</em>
+              from{" "}<em className="italic text-amber-400">LAX</em>
             </motion.h1>
 
             <motion.p
@@ -113,7 +113,7 @@ export default function HeroSection() {
             {/* Rose glow behind image stack */}
             <div
               aria-hidden="true"
-              className="absolute -bottom-16 -right-16 w-80 h-80 bg-rose-500/[0.06] blur-3xl rounded-full pointer-events-none"
+              className="absolute -bottom-16 -right-16 w-80 h-80 bg-amber-500/[0.06] blur-3xl rounded-full pointer-events-none"
             />
 
             <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-black/60 aspect-[4/3] ring-1 ring-white/[0.06]">
@@ -147,7 +147,7 @@ export default function HeroSection() {
               style={{ transform: "rotate(1.5deg)" }}
             >
               <p className="text-[10px] text-slate-500 uppercase tracking-[0.14em]">Rooms from</p>
-              <p className="text-2xl font-extrabold text-rose-400 leading-none mt-0.5">
+              <p className="text-2xl font-extrabold text-amber-400 leading-none mt-0.5">
                 $89<span className="text-sm text-slate-500 font-normal ml-1">/night</span>
               </p>
             </div>
@@ -162,7 +162,7 @@ export default function HeroSection() {
             {STATS.map(({ value, label }) => (
               <div key={label} className="border-l-2 border-teal-500/50 pl-5">
                 <p className="text-2xl font-bold text-white tracking-tight">{value}</p>
-                <p className="text-[10px] text-slate-500 uppercase tracking-[0.16em] mt-0.5">{label}</p>
+                <p className="text-[10px] text-white/40 uppercase tracking-[0.16em] mt-0.5">{label}</p>
               </div>
             ))}
           </div>

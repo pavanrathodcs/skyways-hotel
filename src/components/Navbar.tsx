@@ -52,7 +52,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="font-display text-xl tracking-[0.15em] text-white select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/50"
+            className="font-display font-bold text-xl tracking-widest text-white select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/50"
           >
             SKYWAYS
           </Link>
@@ -107,7 +107,7 @@ export default function Navbar() {
             <div className="flex items-center justify-between px-6 py-4 border-b border-white/[0.06]">
               <Link
                 href="/"
-                className="font-display text-xl tracking-[0.15em] text-white"
+                className="font-display font-bold text-xl tracking-widest text-white"
                 onClick={() => setMenuOpen(false)}
               >
                 SKYWAYS
