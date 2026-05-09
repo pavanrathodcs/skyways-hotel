@@ -86,7 +86,7 @@ export default function LocationSection() {
             className="flex flex-col gap-5"
           >
             {/* Map iframe */}
-            <div className="relative rounded-2xl overflow-hidden border border-white/[0.08] shadow-xl shadow-black/40 aspect-[4/3]">
+            <div className="relative rounded-2xl overflow-hidden border border-white/[0.08] shadow-xl shadow-black/40 h-64 md:h-auto md:aspect-[4/3]">
               <iframe
                 title="Skyways Hotel map"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3307.3!2d-118.3827!3d33.9522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2b4b0c2c5e5a5%3A0x0!2s5860+Arbor+Vitae+St%2C+Los+Angeles%2C+CA+90045!5e0!3m2!1sen!2sus!4v1"

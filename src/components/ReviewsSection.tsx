@@ -97,7 +97,7 @@ export default function ReviewsSection() {
         </div>
 
         {/* Platform scores — open strip, no boxes */}
-        <div className="flex flex-wrap justify-center gap-10 md:gap-16 py-8 border-y border-white/[0.08] mb-12">
+        <div className="flex flex-wrap justify-center gap-6 sm:gap-10 md:gap-16 py-8 border-y border-white/[0.08] mb-12">
           {PLATFORMS.map(({ name, score, sub }) => (
             <div key={name} className="text-center">
               <p className="text-3xl font-extrabold text-amber-400 tracking-tight leading-none mb-1">{score}</p>

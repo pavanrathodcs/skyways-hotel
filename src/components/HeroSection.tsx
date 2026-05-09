@@ -34,7 +34,7 @@ export default function HeroSection() {
             </motion.div>
 
             <motion.h1
-              className="font-display text-5xl md:text-6xl lg:text-[5rem] text-white leading-[1.05] mb-6"
+              className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-[1.05] mb-6"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.06, ease: EASE }}
@@ -62,22 +62,22 @@ export default function HeroSection() {
             >
               <Link
                 href="/booking"
-                className="inline-flex items-center justify-center bg-indigo-600 text-white font-bold text-sm px-8 py-4 rounded-xl hover:bg-indigo-500 transition-colors duration-200 shadow-lg shadow-indigo-900/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+                className="w-full sm:w-auto inline-flex items-center justify-center bg-indigo-600 text-white font-bold text-sm px-8 py-4 rounded-xl hover:bg-indigo-500 transition-colors duration-200 shadow-lg shadow-indigo-900/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
               >
                 Book Your Stay
               </Link>
               <Link
                 href="/rooms"
-                className="inline-flex items-center justify-center border border-white/[0.15] text-slate-300 font-medium text-sm px-8 py-4 rounded-xl hover:border-white/30 hover:text-white transition-all duration-200 focus-visible:outline-none"
+                className="w-full sm:w-auto inline-flex items-center justify-center border border-white/[0.15] text-slate-300 font-medium text-sm px-8 py-4 rounded-xl hover:border-white/30 hover:text-white transition-all duration-200 focus-visible:outline-none"
               >
                 View Rooms
               </Link>
             </motion.div>
           </div>
 
-          {/* ── Right column — image + floating cards ── */}
+          {/* ── Right column — image + floating cards (desktop only) ── */}
           <motion.div
-            className="relative"
+            className="relative hidden lg:block"
             initial={{ opacity: 0, x: 24 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.65, delay: 0.1, ease: EASE }}
