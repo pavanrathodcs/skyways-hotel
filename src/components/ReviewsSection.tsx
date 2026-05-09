@@ -45,8 +45,27 @@ const PLATFORMS = [
   { name: "Trivago",              score: "3,757",    sub: "Reviews · 43 photos"      },
 ];
 
-// Split reviews into 3 columns of 2
 const COLS = [REVIEWS.slice(0, 2), REVIEWS.slice(2, 4), REVIEWS.slice(4, 6)];
+
+function ShimmerStars() {
+  return (
+    <span
+      className="text-amber-400 text-sm tracking-wider relative inline-block"
+      aria-label="5 stars"
+      style={{
+        backgroundImage:
+          "linear-gradient(110deg, rgba(245,158,11,1) 0%, rgba(245,158,11,1) 38%, rgba(255,236,180,1) 50%, rgba(245,158,11,1) 62%, rgba(245,158,11,1) 100%)",
+        backgroundSize: "200% 100%",
+        WebkitBackgroundClip: "text",
+        backgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+        animation: "skyways-shimmer 3.5s linear infinite",
+      }}
+    >
+      ★★★★★
+    </span>
+  );
+}
 
 function ReviewItem({ name, score, text, delay }: { name: string; score: string; text: string; delay: number }) {
   return (
@@ -55,24 +74,24 @@ function ReviewItem({ name, score, text, delay }: { name: string; score: string;
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.45, delay, ease: EASE }}
-      className="py-8 border-b border-white/[0.06] last:border-0"
+      className="py-9 border-b border-white/[0.06] last:border-0"
     >
-      <div className="flex items-center gap-3 mb-3">
-        <span className="text-amber-400 text-sm tracking-wider" aria-label="5 stars">★★★★★</span>
-        <span className="text-amber-400/60 text-xs font-medium">{score}/10</span>
+      <div className="flex items-center gap-3 mb-4">
+        <ShimmerStars />
+        <span className="text-amber-400/70 text-xs font-medium">{score}/10</span>
       </div>
 
-      <p className="text-white/80 text-base leading-relaxed mb-4">
+      <p className="text-white/85 text-base leading-8 mb-5">
         &ldquo;{text}&rdquo;
       </p>
 
-      <div className="flex items-center gap-2">
-        <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs text-white/60 font-medium shrink-0">
+      <div className="flex items-center gap-2.5">
+        <div className="w-7 h-7 rounded-full bg-white/[0.06] border border-white/10 flex items-center justify-center text-xs text-white/70 font-medium shrink-0">
           {name[0].toUpperCase()}
         </div>
         <div>
-          <span className="text-white/70 text-sm font-medium">{name}</span>
-          <span className="text-white/30 text-xs ml-2">Verified guest</span>
+          <span className="text-white/75 text-sm font-medium">{name}</span>
+          <span className="text-white/35 text-xs ml-2">Verified guest</span>
         </div>
       </div>
     </motion.div>
@@ -81,13 +100,21 @@ function ReviewItem({ name, score, text, delay }: { name: string; score: string;
 
 export default function ReviewsSection() {
   return (
-    <section id="reviews" className="py-16 md:py-24 bg-[#070B16]">
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
+    <section id="reviews" className="relative py-20 md:py-28 bg-[#070B16] overflow-hidden">
+      {/* Local CSS for shimmer animation */}
+      <style jsx global>{`
+        @keyframes skyways-shimmer {
+          0% { background-position: 200% 0; }
+          100% { background-position: -200% 0; }
+        }
+      `}</style>
+
+      <div className="relative max-w-7xl mx-auto px-6 md:px-10">
 
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10">
+        <div className="text-center max-w-2xl mx-auto mb-12">
           <p className="text-teal-400 text-xs uppercase tracking-widest mb-3">Guest Reviews</p>
-          <h2 className="font-display text-4xl md:text-5xl text-white leading-tight mb-3">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-white leading-[1.05] tracking-tight mb-3">
             What guests{" "}
             <em className="italic text-amber-400">say</em>
           </h2>
@@ -96,18 +123,44 @@ export default function ReviewsSection() {
           </p>
         </div>
 
-        {/* Platform scores — open strip, no boxes */}
-        <div className="flex flex-wrap justify-center gap-6 sm:gap-10 md:gap-16 py-8 border-y border-white/[0.08] mb-12">
+        {/* Platform scores — open strip with dramatic numbers */}
+        <div className="relative flex flex-wrap justify-center gap-8 sm:gap-12 md:gap-20 py-10 mb-14">
+          {/* Top hairline glow */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-x-0 top-0 h-px"
+            style={{
+              background:
+                "linear-gradient(90deg, transparent, rgba(255,255,255,0.10), transparent)",
+            }}
+          />
+          {/* Bottom hairline glow */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-x-0 bottom-0 h-px"
+            style={{
+              background:
+                "linear-gradient(90deg, transparent, rgba(255,255,255,0.10), transparent)",
+            }}
+          />
           {PLATFORMS.map(({ name, score, sub }) => (
             <div key={name} className="text-center">
-              <p className="text-3xl font-extrabold text-amber-400 tracking-tight leading-none mb-1">{score}</p>
-              <p className="text-xs text-slate-400">{name}</p>
+              <p
+                className="text-4xl md:text-5xl font-extrabold text-amber-400 tracking-tight leading-none mb-2"
+                style={{
+                  textShadow:
+                    "0 0 24px rgba(245,158,11,0.30), 0 0 60px rgba(245,158,11,0.10)",
+                }}
+              >
+                {score}
+              </p>
+              <p className="text-xs text-slate-300 font-medium">{name}</p>
               <p className="text-[11px] text-slate-600 mt-0.5">{sub}</p>
             </div>
           ))}
         </div>
 
-        {/* Review columns — no boxes, just clean text */}
+        {/* Review columns */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-x-12">
           {COLS.map((col, ci) => (
             <div key={ci}>
@@ -125,9 +178,9 @@ export default function ReviewsSection() {
         </div>
 
         {/* Aircraft noise tip */}
-        <div className="flex items-start gap-3 bg-yellow-900/20 border border-yellow-600/30 rounded-xl p-4 max-w-2xl mx-auto mt-8">
+        <div className="flex items-start gap-3 bg-yellow-900/15 backdrop-blur-sm border border-yellow-600/25 rounded-xl p-4 max-w-2xl mx-auto mt-8">
           <AlertCircle size={16} className="text-yellow-400 shrink-0 mt-0.5" />
-          <p className="text-sm text-yellow-300">
+          <p className="text-sm text-yellow-300/90">
             <strong>Good to know:</strong> Guests sensitive to aircraft noise may prefer
             requesting a courtyard-facing room at check-in. Flights typically stop late evening.
           </p>
