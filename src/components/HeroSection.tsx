@@ -25,7 +25,7 @@ const STATS = [
 export default function HeroSection() {
   return (
     <section
-      className="relative bg-[#070B16] overflow-hidden"
+      className="relative bg-[#080808] overflow-hidden"
       aria-label="Skyways Hotel — LAX Airport Hotel"
     >
       <PremiumBackground variant="hero" />
@@ -54,7 +54,7 @@ export default function HeroSection() {
             >
               Rest Easy<br />
               <em className="italic text-teal-400">Minutes</em><br />
-              from{" "}<em className="italic text-amber-400">LAX</em>
+              from{" "}<em className="italic text-rose-400">LAX</em>
             </motion.h1>
 
             <motion.p
@@ -110,10 +110,10 @@ export default function HeroSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.65, delay: 0.1, ease: EASE }}
           >
-            {/* Amber glow behind image stack */}
+            {/* Rose glow behind image stack */}
             <div
               aria-hidden="true"
-              className="absolute -bottom-16 -right-16 w-80 h-80 bg-amber-500/[0.07] blur-3xl rounded-full pointer-events-none"
+              className="absolute -bottom-16 -right-16 w-80 h-80 bg-rose-500/[0.06] blur-3xl rounded-full pointer-events-none"
             />
 
             <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-black/60 aspect-[4/3] ring-1 ring-white/[0.06]">
@@ -129,7 +129,7 @@ export default function HeroSection() {
 
             {/* Floating card: drive time */}
             <div
-              className="hidden md:flex absolute -bottom-5 -left-5 bg-[#0F172A] border border-white/[0.10] rounded-2xl shadow-2xl px-5 py-4 items-center gap-3"
+              className="hidden md:flex absolute -bottom-5 -left-5 bg-[#111111] border border-white/[0.10] rounded-2xl shadow-2xl px-5 py-4 items-center gap-3"
               style={{ transform: "rotate(-1.5deg)" }}
             >
               <div className="w-10 h-10 bg-teal-500/15 rounded-xl flex items-center justify-center shrink-0">
@@ -143,11 +143,11 @@ export default function HeroSection() {
 
             {/* Floating card: price */}
             <div
-              className="hidden md:block absolute -top-5 -right-5 bg-[#0F172A] border border-white/[0.10] rounded-2xl shadow-2xl px-5 py-4"
+              className="hidden md:block absolute -top-5 -right-5 bg-[#111111] border border-white/[0.10] rounded-2xl shadow-2xl px-5 py-4"
               style={{ transform: "rotate(1.5deg)" }}
             >
               <p className="text-[10px] text-slate-500 uppercase tracking-[0.14em]">Rooms from</p>
-              <p className="text-2xl font-extrabold text-amber-400 leading-none mt-0.5">
+              <p className="text-2xl font-extrabold text-rose-400 leading-none mt-0.5">
                 $89<span className="text-sm text-slate-500 font-normal ml-1">/night</span>
               </p>
             </div>
@@ -156,7 +156,7 @@ export default function HeroSection() {
       </div>
 
       {/* ── Stats strip ── */}
-      <div className="relative z-10 border-t border-white/[0.06] bg-[#0A1020]/80 backdrop-blur-sm">
+      <div className="relative z-10 border-t border-white/[0.06] bg-[#0A0A0A]/80 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6 md:px-10 py-8">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-0">
             {STATS.map(({ value, label }) => (

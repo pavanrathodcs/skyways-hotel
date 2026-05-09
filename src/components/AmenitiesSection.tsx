@@ -23,13 +23,13 @@ const AMENITIES = [
 
 export default function AmenitiesSection() {
   return (
-    <section id="amenities" className="py-16 md:py-24 bg-[#070B16]">
+    <section id="amenities" className="py-16 md:py-24 bg-[#080808]">
       <div className="max-w-5xl mx-auto px-6 md:px-10">
         <div className="text-center mb-12">
           <p className="text-teal-400 text-xs uppercase tracking-widest mb-3">What&apos;s Included</p>
           <h2 className="font-display text-4xl md:text-5xl text-white leading-tight">
             Included with{" "}
-            <em className="italic text-amber-400">every stay</em>
+            <em className="italic text-rose-400">every stay</em>
           </h2>
         </div>
 

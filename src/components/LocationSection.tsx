@@ -34,7 +34,7 @@ const TRANSPORT = [
 
 export default function LocationSection() {
   return (
-    <section id="location" className="py-16 md:py-24 bg-[#070B16]">
+    <section id="location" className="py-16 md:py-24 bg-[#080808]">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
@@ -47,7 +47,7 @@ export default function LocationSection() {
           >
             <p className="text-teal-400 text-xs uppercase tracking-widest mb-3">Find Us</p>
             <h2 className="font-display text-4xl md:text-5xl text-white leading-tight mb-2">
-              Getting <em className="italic text-amber-400">here</em>
+              Getting <em className="italic text-rose-400">here</em>
             </h2>
             <p className="text-slate-500 text-sm mb-8">5860 Arbor Vitae St, Los Angeles, CA 90045</p>
 
@@ -83,7 +83,7 @@ export default function LocationSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
-            className="rounded-2xl border border-white/[0.08] bg-[#0D1221] flex items-center justify-center min-h-[320px] relative overflow-hidden"
+            className="rounded-2xl border border-white/[0.08] bg-[#141414] flex items-center justify-center min-h-[320px] relative overflow-hidden"
           >
             <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-teal-500/40 to-transparent" />
 

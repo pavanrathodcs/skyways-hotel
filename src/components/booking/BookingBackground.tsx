@@ -6,7 +6,7 @@ export default function BookingBackground() {
   return (
     <div
       aria-hidden="true"
-      className="fixed inset-0 -z-10 overflow-hidden pointer-events-none select-none bg-[#070B16]"
+      className="fixed inset-0 -z-10 overflow-hidden pointer-events-none select-none bg-[#080808]"
     >
       {/* Subtle dot-grid texture */}
       <div

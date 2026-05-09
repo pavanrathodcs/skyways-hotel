@@ -13,7 +13,7 @@ const DINING_CHIPS = [
 
 export default function ExperienceSection() {
   return (
-    <section id="dining" className="py-16 md:py-24 bg-[#0B1628]" aria-label="On-site dining">
+    <section id="dining" className="py-16 md:py-24 bg-[#0F0F0F]" aria-label="On-site dining">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
@@ -27,7 +27,7 @@ export default function ExperienceSection() {
             <p className="text-teal-400 text-xs uppercase tracking-widest mb-3">On-Site Dining</p>
             <h2 className="font-display text-4xl md:text-5xl text-white leading-tight mb-5">
               Taste of{" "}
-              <em className="italic text-amber-400">Greece</em>,<br />
+              <em className="italic text-rose-400">Greece</em>,<br />
               steps from your room
             </h2>
             <p className="text-slate-400 text-base leading-relaxed mb-7">
@@ -55,10 +55,10 @@ export default function ExperienceSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
-            className="bg-[#0D1221] rounded-2xl border border-white/[0.08] overflow-hidden"
+            className="bg-[#141414] rounded-2xl border border-white/[0.08] overflow-hidden"
           >
-            {/* Amber top border */}
-            <div className="h-[3px] bg-gradient-to-r from-amber-400/80 via-amber-500/50 to-transparent" />
+            {/* Rose top border */}
+            <div className="h-[3px] bg-gradient-to-r from-rose-400/80 via-rose-500/50 to-transparent" />
 
             <div className="p-8">
               <div className="flex items-start gap-2 mb-1">
@@ -73,7 +73,7 @@ export default function ExperienceSection() {
                 {DINING_CHIPS.map(({ Icon, text }) => (
                   <span
                     key={text}
-                    className="inline-flex items-center gap-1.5 text-xs font-medium text-amber-300 bg-amber-500/10 border border-amber-500/20 px-3 py-1.5 rounded-full"
+                    className="inline-flex items-center gap-1.5 text-xs font-medium text-rose-300 bg-rose-500/10 border border-rose-500/20 px-3 py-1.5 rounded-full"
                   >
                     <Icon size={11} />
                     {text}
@@ -87,7 +87,7 @@ export default function ExperienceSection() {
                   &ldquo;AMAZING Greek restaurant!!! Highly suggest!&rdquo;
                 </p>
                 <div className="flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-full bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-300 text-xs font-bold shrink-0">
+                  <div className="w-7 h-7 rounded-full bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-300 text-xs font-bold shrink-0">
                     K
                   </div>
                   <p className="text-xs text-slate-500">Kara &middot; Verified guest &middot; 10/10</p>

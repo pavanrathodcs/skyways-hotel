@@ -40,13 +40,13 @@ const REASONS = [
 
 export default function WhyStaySection() {
   return (
-    <section className="py-16 md:py-24 bg-[#0B1628]">
+    <section className="py-16 md:py-24 bg-[#0F0F0F]">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <p className="text-teal-400 text-xs uppercase tracking-widest mb-3">Why Stay</p>
           <h2 className="font-display text-4xl md:text-5xl text-white leading-tight">
             Why guests{" "}
-            <em className="italic text-amber-400">choose us</em>
+            <em className="italic text-rose-400">choose us</em>
           </h2>
         </div>
 
@@ -60,13 +60,13 @@ export default function WhyStaySection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.45, delay: i * 0.07, ease: EASE }}
-                className="relative bg-[#0D1221] rounded-xl overflow-hidden border border-white/[0.08] hover:border-white/[0.16] hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/40 transition-all duration-300 p-6"
+                className="relative bg-[#141414] rounded-xl overflow-hidden border border-white/[0.08] hover:border-white/[0.16] hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/40 transition-all duration-300 p-6"
               >
                 {/* Top accent bar */}
-                <div className={`absolute top-0 left-0 right-0 h-[2px] ${isTeal ? "bg-teal-400" : "bg-amber-400"}`} />
+                <div className={`absolute top-0 left-0 right-0 h-[2px] ${isTeal ? "bg-teal-400" : "bg-rose-400"}`} />
 
-                <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-5 ${isTeal ? "bg-teal-500/10" : "bg-amber-500/10"}`}>
-                  <Icon size={22} className={isTeal ? "text-teal-400" : "text-amber-400"} />
+                <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-5 ${isTeal ? "bg-teal-500/10" : "bg-rose-500/10"}`}>
+                  <Icon size={22} className={isTeal ? "text-teal-400" : "text-rose-400"} />
                 </div>
 
                 <h3 className="font-semibold text-white mb-2 text-[15px] leading-snug">{title}</h3>

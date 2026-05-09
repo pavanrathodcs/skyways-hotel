@@ -83,16 +83,16 @@ export default function FAQSection() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-16 md:py-24 bg-[#070B16]">
+    <section id="faq" className="py-16 md:py-24 bg-[#080808]">
       <div className="max-w-3xl mx-auto px-6 md:px-10">
         <div className="text-center mb-12">
           <p className="text-teal-400 text-xs uppercase tracking-widest mb-3">Common Questions</p>
           <h2 className="font-display text-4xl md:text-5xl text-white leading-tight">
-            Good to <em className="italic text-amber-400">know</em>
+            Good to <em className="italic text-rose-400">know</em>
           </h2>
         </div>
 
-        <div className="border border-white/[0.07] rounded-2xl bg-[#0C1220] overflow-hidden divide-y divide-white/[0.07]">
+        <div className="border border-white/[0.07] rounded-2xl bg-[#111111] overflow-hidden divide-y divide-white/[0.07]">
           {FAQS.map((item, i) => (
             <FAQItem
               key={i}

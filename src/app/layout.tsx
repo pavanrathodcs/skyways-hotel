@@ -37,7 +37,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${jakarta.variable}`}>
-      <body className="font-sans antialiased bg-[#070B16] text-slate-50">
+      <body className="font-sans antialiased bg-[#080808] text-slate-50">
         <SmoothScroll />
         <Navbar />
         {children}

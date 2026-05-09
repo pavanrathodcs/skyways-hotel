@@ -129,7 +129,7 @@ export default function BookingClient() {
 
           {/* ── Form card ─────────────────────────────────────────────────── */}
           <motion.div
-            className="bg-[#0C1628]/80 backdrop-blur-sm border border-white/[0.07] rounded-2xl shadow-2xl shadow-black/60"
+            className="bg-[#111111]/80 backdrop-blur-sm border border-white/[0.07] rounded-2xl shadow-2xl shadow-black/60"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.1, ease: EASE }}
@@ -265,7 +265,7 @@ export default function BookingClient() {
                 <div className="space-y-4 pt-1">
                   <button
                     type="submit"
-                    className="w-full bg-indigo-600 text-white font-bold text-sm tracking-wide py-4 rounded-xl hover:bg-indigo-500 active:scale-[0.99] transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0C1628] shadow-lg shadow-indigo-900/40"
+                    className="w-full bg-indigo-600 text-white font-bold text-sm tracking-wide py-4 rounded-xl hover:bg-indigo-500 active:scale-[0.99] transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111] shadow-lg shadow-indigo-900/40"
                   >
                     Submit Reservation Request
                   </button>
@@ -287,7 +287,7 @@ export default function BookingClient() {
           >
 
             {/* Pricing summary */}
-            <div className="bg-[#0C1628]/80 backdrop-blur-sm border border-white/[0.07] rounded-2xl p-6 shadow-xl shadow-black/50">
+            <div className="bg-[#111111]/80 backdrop-blur-sm border border-white/[0.07] rounded-2xl p-6 shadow-xl shadow-black/50">
               <p className="text-[10px] font-bold tracking-[0.16em] uppercase text-slate-600 mb-5">
                 Booking Summary
               </p>
@@ -347,7 +347,7 @@ export default function BookingClient() {
             </div>
 
             {/* Hotel notes */}
-            <div className="bg-[#0C1628]/80 backdrop-blur-sm border border-white/[0.07] rounded-2xl p-6 shadow-xl shadow-black/50">
+            <div className="bg-[#111111]/80 backdrop-blur-sm border border-white/[0.07] rounded-2xl p-6 shadow-xl shadow-black/50">
               <p className="text-[10px] font-bold tracking-[0.16em] uppercase text-slate-600 mb-4">
                 Hotel Notes
               </p>
