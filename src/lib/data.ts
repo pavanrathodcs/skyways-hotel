@@ -78,8 +78,8 @@ export const AMENITIES: Amenity[] = [
     Icon: Wifi,
   },
   {
-    name: 'On-Site Restaurant',
-    description: 'Full-service dining available for breakfast, lunch, and dinner on-site.',
+    name: "Aliki's Authentic Greek Taverna",
+    description: "Authentic Greek cuisine on-site. Open for lunch and dinner. Vegan and gluten-free options available.",
     Icon: UtensilsCrossed,
   },
   {

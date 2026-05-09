@@ -6,10 +6,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
-  { label: "Rooms",      href: "/#rooms"      },
-  { label: "Amenities",  href: "/#amenities"  },
-  { label: "Experience", href: "/#experience" },
-  { label: "Contact",    href: "/#contact"    },
+  { label: "Rooms",     href: "/#rooms"     },
+  { label: "Amenities", href: "/#amenities" },
+  { label: "Dining",    href: "/#dining"    },
+  { label: "Location",  href: "/#location"  },
+  { label: "Reviews",   href: "/#reviews"   },
+  { label: "FAQ",       href: "/#faq"       },
+  { label: "Contact",   href: "/#contact"   },
 ] as const;
 
 export default function Navbar() {
@@ -37,28 +40,30 @@ export default function Navbar() {
     <>
       <motion.header
         className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-[#0B0B0B]/85 backdrop-blur-xl" : "bg-transparent"
+          scrolled
+            ? "bg-[#0B1120] border-b border-white/[0.08]"
+            : "bg-[#0B1120]/80 backdrop-blur-md"
         }`}
         initial={{ opacity: 0, y: -12 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-10 py-5 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 py-4 flex items-center justify-between">
           {/* Logo */}
           <Link
             href="/"
-            className="font-display text-xl tracking-[0.15em] select-none bg-gradient-to-r from-[#C9A84C] via-[#e8d095] to-[#C9A84C] bg-clip-text text-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
+            className="font-display text-xl tracking-[0.15em] text-white select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/50"
           >
             SKYWAYS
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-8" aria-label="Primary navigation">
+          <nav className="hidden lg:flex items-center gap-6" aria-label="Primary navigation">
             {NAV_LINKS.map(({ label, href }) => (
               <Link
                 key={label}
                 href={href}
-                className="text-white/50 text-sm hover:text-white transition-colors duration-200 focus-visible:outline-none focus-visible:text-white"
+                className="text-slate-400 text-[13px] hover:text-white transition-colors duration-200 focus-visible:outline-none focus-visible:text-white"
               >
                 {label}
               </Link>
@@ -66,62 +71,76 @@ export default function Navbar() {
           </nav>
 
           <div className="flex items-center gap-4">
-            {/* Book now — desktop */}
             <Link
               href="/booking"
-              className="hidden md:inline-flex items-center bg-[#6C63FF] text-white text-sm font-medium px-5 py-2 hover:bg-[#5a52e0] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6C63FF]/50"
+              className="hidden lg:inline-flex items-center bg-indigo-500 text-white text-sm font-semibold px-5 py-2.5 rounded-md hover:bg-indigo-400 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
             >
-              Book now
+              Book Now
             </Link>
-
-            {/* Hamburger — mobile */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="md:hidden text-ash hover:text-white transition-colors duration-200 focus-visible:outline-none p-1"
+              className="lg:hidden text-slate-400 hover:text-white transition-colors duration-200 focus-visible:outline-none p-1"
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               aria-expanded={menuOpen}
             >
               {menuOpen
-                ? <X size={20} strokeWidth={1.5} />
-                : <Menu size={20} strokeWidth={1.5} />}
+                ? <X size={22} strokeWidth={1.5} />
+                : <Menu size={22} strokeWidth={1.5} />}
             </button>
           </div>
         </div>
       </motion.header>
 
-      {/* Mobile overlay */}
+      {/* Mobile drawer */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className="fixed inset-0 z-40 bg-[#080808] flex flex-col items-center justify-center gap-2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-40 bg-[#0B1120] flex flex-col"
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ duration: 0.22, ease: "easeInOut" }}
             role="dialog"
             aria-modal="true"
             aria-label="Navigation menu"
           >
-            <nav className="flex flex-col items-center gap-8" aria-label="Mobile navigation">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-white/[0.06]">
+              <Link
+                href="/"
+                className="font-display text-xl tracking-[0.15em] text-white"
+                onClick={() => setMenuOpen(false)}
+              >
+                SKYWAYS
+              </Link>
+              <button
+                onClick={() => setMenuOpen(false)}
+                className="text-slate-400 hover:text-white p-1 transition-colors focus-visible:outline-none"
+                aria-label="Close menu"
+              >
+                <X size={22} strokeWidth={1.5} />
+              </button>
+            </div>
+
+            <nav className="flex flex-col px-6 pt-6 gap-1" aria-label="Mobile navigation">
               {NAV_LINKS.map(({ label, href }) => (
                 <Link
                   key={label}
                   href={href}
                   onClick={() => setMenuOpen(false)}
-                  className="font-display text-4xl text-white hover:text-ash-light transition-colors duration-200 focus-visible:outline-none"
+                  className="text-slate-300 text-xl font-medium py-3.5 border-b border-white/[0.06] hover:text-indigo-400 transition-colors duration-200 focus-visible:outline-none"
                 >
                   {label}
                 </Link>
               ))}
             </nav>
 
-            <div className="mt-12">
+            <div className="px-6 mt-8">
               <Link
                 href="/booking"
                 onClick={() => setMenuOpen(false)}
-                className="bg-[#6C63FF] text-white text-sm font-medium px-10 py-3 hover:bg-[#5a52e0] transition-colors duration-200 focus-visible:outline-none"
+                className="block w-full text-center bg-indigo-500 text-white text-sm font-semibold px-6 py-3.5 rounded-md hover:bg-indigo-400 transition-colors duration-200 focus-visible:outline-none"
               >
-                Book now
+                Book Now
               </Link>
             </div>
           </motion.div>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -11,21 +11,22 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
-const inter = Inter({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-jakarta",
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Skyways Hotel — Affordable LAX Airport Hotel from $89",
   description:
-    "The most affordable hotel near LAX Airport. From $89/night. Free WiFi, on-site dining, 0.8 miles from all terminals.",
+    "Affordable 2-star hotel 0.8 miles from LAX. From $89/night. Free Wi-Fi, 24/7 front desk, on-site Greek restaurant.",
   keywords: "affordable LAX hotel, cheap hotel near LAX, airport hotel Los Angeles, hotel from $89",
   openGraph: {
     title: "Skyways Hotel — Affordable LAX Airport Hotel from $89",
     description:
-      "The most affordable hotel near LAX Airport. From $89/night. Free WiFi, on-site dining, 0.8 miles from all terminals.",
+      "Affordable 2-star hotel 0.8 miles from LAX. From $89/night. Free Wi-Fi, 24/7 front desk, on-site Greek restaurant.",
     type: "website",
   },
 };
@@ -34,8 +35,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
-      <body className="font-sans antialiased bg-onyx text-cream">
+    <html lang="en" className={`${playfair.variable} ${jakarta.variable}`}>
+      <body className="font-sans antialiased bg-[#0B1120] text-slate-50">
         <SmoothScroll />
         <Navbar />
         {children}
